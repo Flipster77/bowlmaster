@@ -6,10 +6,12 @@ using UnityEngine;
 [TestFixture]
 public class ActionMasterTest {
 
+    private ActionMaster actionMaster;
     private ActionMaster.Action endTurn = ActionMaster.Action.EndTurn;
     private ActionMaster.Action tidy = ActionMaster.Action.Tidy;
-    private ActionMaster actionMaster;
-
+    private ActionMaster.Action reset = ActionMaster.Action.Reset;
+    private ActionMaster.Action endGame = ActionMaster.Action.EndGame;
+    
     [SetUp]
     public void Setup() {
         actionMaster = new ActionMaster();
@@ -40,5 +42,46 @@ public class ActionMasterTest {
     public void T04TwoGutterBalls() {
         Assert.AreEqual(tidy, actionMaster.RecordBowl(0));
         Assert.AreEqual(endTurn, actionMaster.RecordBowl(0));
+    }
+
+    [Test]
+    public void T05AllGutterBalls() {
+        for (int i = 0; i < 9; i++) {
+            Assert.AreEqual(tidy, actionMaster.RecordBowl(0));
+            Assert.AreEqual(endTurn, actionMaster.RecordBowl(0));
+        }
+        Assert.AreEqual(tidy, actionMaster.RecordBowl(0));
+        Assert.AreEqual(endGame, actionMaster.RecordBowl(0));
+    }
+
+    [Test]
+    public void T06AllSpares() {
+        for (int i = 0; i < 9; i++) {
+            Assert.AreEqual(tidy, actionMaster.RecordBowl(8));
+            Assert.AreEqual(endTurn, actionMaster.RecordBowl(2));
+        }
+        Assert.AreEqual(tidy, actionMaster.RecordBowl(8));
+        Assert.AreEqual(reset, actionMaster.RecordBowl(2));
+        Assert.AreEqual(endGame, actionMaster.RecordBowl(8));
+    }
+
+    [Test]
+    public void T07AllStrikes() {
+        for (int i = 0; i < 9; i++) {
+            Assert.AreEqual(endTurn, actionMaster.RecordBowl(10));
+        }
+        Assert.AreEqual(reset, actionMaster.RecordBowl(10));
+        Assert.AreEqual(reset, actionMaster.RecordBowl(10));
+        Assert.AreEqual(endGame, actionMaster.RecordBowl(10));
+    }
+
+    [Test]
+    public void T08StrikeThenGutterballsOnLastFrame() {
+        for (int i = 0; i < 9; i++) {
+            Assert.AreEqual(endTurn, actionMaster.RecordBowl(10));
+        }
+        Assert.AreEqual(reset, actionMaster.RecordBowl(10));
+        Assert.AreEqual(tidy, actionMaster.RecordBowl(0));
+        Assert.AreEqual(endGame, actionMaster.RecordBowl(0));
     }
 }
