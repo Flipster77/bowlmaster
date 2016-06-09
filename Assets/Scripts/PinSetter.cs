@@ -5,82 +5,19 @@ using System.Collections;
 public class PinSetter : MonoBehaviour {
 
     /// <summary>
-    /// The text used to display the number of standing pins.
-    /// </summary>
-    public Text pinCountDisplay;
-    /// <summary>
     /// The distance to raise the pins when tidying the pin area.
     /// </summary>
     public float distanceToRaise = 40f;
 
-
-    /// <summary>
-    /// Records the last time that the number of standing pins changed.
-    /// </summary>
-    private float lastChangeTime;
-    /// <summary>
-    /// Records the last calculated number of standing pins.
-    /// This is initialised to -1 before each bowl.
-    /// </summary>
-    private int lastStandingCount = -1;
-    /// <summary>
-    /// The time in seconds to wait until it is considered that the pins
-    /// have settled.
-    /// </summary>
-    private const float SETTLE_TIME = 3f;
-
-    private int numPinsStandingBeforeBowl = 10;
-
-    private ActionMaster actionMaster;
     private Animator animator;
-    private Ball ball;
     private Pin[] pins;
-    private bool ballEnteredBox;
+    private PinCounter pinCounter;
 
     // Use this for initialization
     void Start() {
-        ball = GameObject.FindObjectOfType<Ball>();
         pins = GameObject.FindObjectsOfType<Pin>();
+        pinCounter = GameObject.FindObjectOfType<PinCounter>();
         animator = this.GetComponent<Animator>();
-        actionMaster = new ActionMaster();
-        ballEnteredBox = false;
-    }
-
-    // Update is called once per frame
-    void Update() {
-        /*
-         * If the ball is in the pin area or outside the lane, 
-         * update pin count
-         */
-        if (ballEnteredBox || ball.transform.position.y < 0f) {
-            pinCountDisplay.color = Color.red;
-            UpdatePinsStanding();
-        }
-    }
-
-    /// <summary>
-    /// A collider has entered the pin area.
-    /// </summary>
-    /// <param name="other">The collider that has entered.</param>
-    void OnTriggerEnter(Collider other) {
-        // Ball has entered trigger box
-        if (other.GetComponent<Ball>() != null) {
-            pinCountDisplay.color = Color.red;
-            ballEnteredBox = true;
-        }
-    }
-
-    /// <summary>
-    /// A collider has left the pin area.
-    /// </summary>
-    /// <param name="other">The collider that has exited.</param>
-    void OnTriggerExit(Collider other) {
-        Pin pinLeaving = other.GetComponentInParent<Pin>();
-
-        // Pin has left the play area
-        if (pinLeaving) {
-            pinLeaving.LeftPlayArea();
-        }
     }
 
     
@@ -123,58 +60,11 @@ public class PinSetter : MonoBehaviour {
 
         RaisePins();
 
-        numPinsStandingBeforeBowl = 10;
-        pinCountDisplay.text = "10";
+        pinCounter.PinsReset();
     }
 
-    /// <summary>
-    /// Updates how many pins are standing and checks whether they have settled.
-    /// </summary>
-    private void UpdatePinsStanding() {
-        // Update the last standing count
-        int currentStandingCount = CountPinsStanding();
-        if (currentStandingCount != lastStandingCount) {
-            lastChangeTime = Time.time;
-            lastStandingCount = currentStandingCount;
-            return;
-        }
-
-        // Update pin count display
-        pinCountDisplay.text = currentStandingCount.ToString();
-
-        // Check whether the pins have settled for # of seconds
-        float timeSinceLastChange = Time.time - lastChangeTime;
-        if (timeSinceLastChange > SETTLE_TIME) {
-            PinsHaveSettled();
-        }
-    }
-
-    /// <summary>
-    /// Counts how many pins are standing.
-    /// </summary>
-    /// <returns>The number of pins that are standing.</returns>
-    private int CountPinsStanding() {
-        int standingPins = 0;
-
-        foreach (Pin pin in pins) {
-            if (pin.IsStanding()) {
-                standingPins++;
-            }
-        }
-
-        return standingPins;
-    }
-
-    /// <summary>
-    /// Resets ball to the starting position and reset pin standing count.
-    /// </summary>
-    private void PinsHaveSettled() {
-        pinCountDisplay.color = Color.green;
-
-        int pinsKnockedDownThisBowl = numPinsStandingBeforeBowl - lastStandingCount;
-        ActionMaster.Action nextAction = actionMaster.RecordBowl(pinsKnockedDownThisBowl);
-        Debug.Log("Pins knocked down is: " + pinsKnockedDownThisBowl + ", Action is: " + nextAction);
-
+    
+    public void PerformAction(ActionMaster.Action nextAction) {
         // Perform correct action
         switch (nextAction) {
             case ActionMaster.Action.Tidy:
@@ -188,11 +78,5 @@ public class PinSetter : MonoBehaviour {
             default:
                 throw new UnityException("No specified behaviour for action: " + nextAction);
         }
-
-        // Reset pins standing count and set ball to starting position
-        numPinsStandingBeforeBowl = lastStandingCount;
-        lastStandingCount = -1;
-        ballEnteredBox = false;
-        ball.Reset();
     }
 }

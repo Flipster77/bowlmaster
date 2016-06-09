@@ -24,74 +24,74 @@ public class ActionMasterTest {
 
     [Test]
     public void T01OneStrikeReturnsEndTurn() {
-        Assert.AreEqual(endTurn, actionMaster.RecordBowl(10));
+        Assert.AreEqual(endTurn, actionMaster.Bowl(10));
     }
 
     [Test]
     public void T02BowlEightReturnsTidy() {
-        Assert.AreEqual(tidy, actionMaster.RecordBowl(8));
+        Assert.AreEqual(tidy, actionMaster.Bowl(8));
     }
 
     [Test]
     public void T03BowlTwoThenEightReturnsEndTurn() {
-        Assert.AreEqual(tidy, actionMaster.RecordBowl(8));
-        Assert.AreEqual(endTurn, actionMaster.RecordBowl(2));
+        Assert.AreEqual(tidy, actionMaster.Bowl(8));
+        Assert.AreEqual(endTurn, actionMaster.Bowl(2));
     }
 
     [Test]
     public void T04TwoGutterBalls() {
-        Assert.AreEqual(tidy, actionMaster.RecordBowl(0));
-        Assert.AreEqual(endTurn, actionMaster.RecordBowl(0));
+        Assert.AreEqual(tidy, actionMaster.Bowl(0));
+        Assert.AreEqual(endTurn, actionMaster.Bowl(0));
     }
 
     [Test]
     public void T05AllGutterBalls() {
         for (int i = 0; i < 9; i++) {
-            Assert.AreEqual(tidy, actionMaster.RecordBowl(0));
-            Assert.AreEqual(endTurn, actionMaster.RecordBowl(0));
+            Assert.AreEqual(tidy, actionMaster.Bowl(0));
+            Assert.AreEqual(endTurn, actionMaster.Bowl(0));
         }
-        Assert.AreEqual(tidy, actionMaster.RecordBowl(0));
-        Assert.AreEqual(endGame, actionMaster.RecordBowl(0));
+        Assert.AreEqual(tidy, actionMaster.Bowl(0));
+        Assert.AreEqual(endGame, actionMaster.Bowl(0));
     }
 
     [Test]
     public void T06AllSpares() {
         for (int i = 0; i < 9; i++) {
-            Assert.AreEqual(tidy, actionMaster.RecordBowl(8));
-            Assert.AreEqual(endTurn, actionMaster.RecordBowl(2));
+            Assert.AreEqual(tidy, actionMaster.Bowl(8));
+            Assert.AreEqual(endTurn, actionMaster.Bowl(2));
         }
-        Assert.AreEqual(tidy, actionMaster.RecordBowl(8));
-        Assert.AreEqual(reset, actionMaster.RecordBowl(2));
-        Assert.AreEqual(endGame, actionMaster.RecordBowl(8));
+        Assert.AreEqual(tidy, actionMaster.Bowl(8));
+        Assert.AreEqual(reset, actionMaster.Bowl(2));
+        Assert.AreEqual(endGame, actionMaster.Bowl(8));
     }
 
     [Test]
     public void T07AllStrikes() {
         for (int i = 0; i < 9; i++) {
-            Assert.AreEqual(endTurn, actionMaster.RecordBowl(10));
+            Assert.AreEqual(endTurn, actionMaster.Bowl(10));
         }
-        Assert.AreEqual(reset, actionMaster.RecordBowl(10));
-        Assert.AreEqual(reset, actionMaster.RecordBowl(10));
-        Assert.AreEqual(endGame, actionMaster.RecordBowl(10));
+        Assert.AreEqual(reset, actionMaster.Bowl(10));
+        Assert.AreEqual(reset, actionMaster.Bowl(10));
+        Assert.AreEqual(endGame, actionMaster.Bowl(10));
     }
 
     [Test]
     public void T08StrikeThenGutterballsOnLastFrame() {
         for (int i = 0; i < 9; i++) {
-            Assert.AreEqual(endTurn, actionMaster.RecordBowl(10));
+            Assert.AreEqual(endTurn, actionMaster.Bowl(10));
         }
-        Assert.AreEqual(reset, actionMaster.RecordBowl(10));
-        Assert.AreEqual(tidy, actionMaster.RecordBowl(0));
-        Assert.AreEqual(endGame, actionMaster.RecordBowl(0));
+        Assert.AreEqual(reset, actionMaster.Bowl(10));
+        Assert.AreEqual(tidy, actionMaster.Bowl(0));
+        Assert.AreEqual(endGame, actionMaster.Bowl(0));
     }
 
     [Test]
     public void T09StrikeThenOnesOnLastFrame() {
         for (int i = 0; i < 9; i++) {
-            Assert.AreEqual(endTurn, actionMaster.RecordBowl(10));
+            Assert.AreEqual(endTurn, actionMaster.Bowl(10));
         }
-        Assert.AreEqual(reset, actionMaster.RecordBowl(10));
-        Assert.AreEqual(tidy, actionMaster.RecordBowl(1));
-        Assert.AreEqual(endGame, actionMaster.RecordBowl(1));
+        Assert.AreEqual(reset, actionMaster.Bowl(10));
+        Assert.AreEqual(tidy, actionMaster.Bowl(1));
+        Assert.AreEqual(endGame, actionMaster.Bowl(1));
     }
 }

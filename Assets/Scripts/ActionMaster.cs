@@ -14,7 +14,7 @@ public class ActionMaster {
     /// </summary>
     /// <param name="pins">The number of pins bowled down.</param>
     /// <returns>The action that should be taken.</returns>
-	public Action RecordBowl(int pins) {
+	public Action Bowl(int pins) {
         if (pins < 0 || pins > 10) {
             throw new UnityException("Pins bowled must be between 0 and 10");
         }
