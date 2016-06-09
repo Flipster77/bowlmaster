@@ -9,6 +9,11 @@ public class ActionMaster {
     private int bowl = 1;
     private bool thirdBowlInFrame10Granted = false;
 
+    /// <summary>
+    /// Records the number of pins bowled down and returns the appropriate action to take.
+    /// </summary>
+    /// <param name="pins">The number of pins bowled down.</param>
+    /// <returns>The action that should be taken.</returns>
 	public Action RecordBowl(int pins) {
         if (pins < 0 || pins > 10) {
             throw new UnityException("Pins bowled must be between 0 and 10");
@@ -25,8 +30,7 @@ public class ActionMaster {
         // For the last frame
         if (bowl > 18) {
             // If a strike or spare occurs, grant third bowl and reset
-            if (pins == 10 || 
-                (bowls[18] != 10 && (bowls[18] + bowls[19]) == 10)) {
+            if (pins == 10 || SpareBowledInLastFrame()) {
                 bowl++;
                 thirdBowlInFrame10Granted = true;
                 return Action.Reset;
@@ -43,11 +47,7 @@ public class ActionMaster {
             }
         }
 
-        // If this was a strike, increment bowl number by two and end turn
-        if (pins == 10 && bowl % 2 != 0) {
-            bowl += 2;
-            return Action.EndTurn;
-        }
+        // All other frames:
 
         // First bowl of the frame
         if (bowl % 2 != 0) {
@@ -63,5 +63,13 @@ public class ActionMaster {
             bowl++;
             return Action.EndTurn;
         }
+    }
+
+    /// <summary>
+    /// Returns whether or not a spare was bowled in the last frame.
+    /// </summary>
+    /// <returns>True if a spare was bowled, false otherwise.</returns>
+    private bool SpareBowledInLastFrame() {
+        return (bowls[18] != 10 && (bowls[18] + bowls[19]) == 10);
     }
 }

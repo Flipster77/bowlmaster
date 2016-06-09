@@ -44,8 +44,6 @@ public class Ball : MonoBehaviour {
     /// Resets the ball to its starting pre-bowl position.
     /// </summary>
     public void Reset() {
-        Debug.Log("Resetting ball");
-
         transform.position = initialPosition;
         transform.rotation = initialRotation;
 

@@ -84,4 +84,14 @@ public class ActionMasterTest {
         Assert.AreEqual(tidy, actionMaster.RecordBowl(0));
         Assert.AreEqual(endGame, actionMaster.RecordBowl(0));
     }
+
+    [Test]
+    public void T09StrikeThenOnesOnLastFrame() {
+        for (int i = 0; i < 9; i++) {
+            Assert.AreEqual(endTurn, actionMaster.RecordBowl(10));
+        }
+        Assert.AreEqual(reset, actionMaster.RecordBowl(10));
+        Assert.AreEqual(tidy, actionMaster.RecordBowl(1));
+        Assert.AreEqual(endGame, actionMaster.RecordBowl(1));
+    }
 }

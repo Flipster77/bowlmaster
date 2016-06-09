@@ -13,6 +13,7 @@ public class PinSetter : MonoBehaviour {
     /// </summary>
     public float distanceToRaise = 40f;
 
+
     /// <summary>
     /// Records the last time that the number of standing pins changed.
     /// </summary>
@@ -28,6 +29,10 @@ public class PinSetter : MonoBehaviour {
     /// </summary>
     private const float SETTLE_TIME = 3f;
 
+    private int numPinsStandingBeforeBowl = 10;
+
+    private ActionMaster actionMaster;
+    private Animator animator;
     private Ball ball;
     private Pin[] pins;
     private bool ballEnteredBox;
@@ -36,6 +41,8 @@ public class PinSetter : MonoBehaviour {
     void Start() {
         ball = GameObject.FindObjectOfType<Ball>();
         pins = GameObject.FindObjectsOfType<Pin>();
+        animator = this.GetComponent<Animator>();
+        actionMaster = new ActionMaster();
         ballEnteredBox = false;
     }
 
@@ -46,6 +53,7 @@ public class PinSetter : MonoBehaviour {
          * update pin count
          */
         if (ballEnteredBox || ball.transform.position.y < 0f) {
+            pinCountDisplay.color = Color.red;
             UpdatePinsStanding();
         }
     }
@@ -80,7 +88,6 @@ public class PinSetter : MonoBehaviour {
     /// Raises the pins that are standing.
     /// </summary>
     public void RaisePins() {
-        Debug.Log("Raising pins");
 
         foreach (Pin pin in pins) {
             if (pin.IsStanding()) {
@@ -95,7 +102,6 @@ public class PinSetter : MonoBehaviour {
     /// Loweres the pins that are standing.
     /// </summary>
     public void LowerPins() {
-        Debug.Log("Lowering pins");
 
         foreach (Pin pin in pins) {
             if (pin.IsStanding()) {
@@ -110,13 +116,14 @@ public class PinSetter : MonoBehaviour {
     /// Resets the pins to their starting positions.
     /// </summary>
     public void RenewPins() {
-        Debug.Log("Renewing pins");
+
         foreach (Pin pin in pins) {
             pin.Reset();
         }
 
         RaisePins();
 
+        numPinsStandingBeforeBowl = 10;
         pinCountDisplay.text = "10";
     }
 
@@ -164,7 +171,26 @@ public class PinSetter : MonoBehaviour {
     private void PinsHaveSettled() {
         pinCountDisplay.color = Color.green;
 
+        int pinsKnockedDownThisBowl = numPinsStandingBeforeBowl - lastStandingCount;
+        ActionMaster.Action nextAction = actionMaster.RecordBowl(pinsKnockedDownThisBowl);
+        Debug.Log("Pins knocked down is: " + pinsKnockedDownThisBowl + ", Action is: " + nextAction);
+
+        // Perform correct action
+        switch (nextAction) {
+            case ActionMaster.Action.Tidy:
+                animator.SetTrigger("tidyTrigger");
+                break;
+            case ActionMaster.Action.Reset:
+            case ActionMaster.Action.EndTurn:
+                animator.SetTrigger("resetTrigger");
+                break;
+            case ActionMaster.Action.EndGame:
+            default:
+                throw new UnityException("No specified behaviour for action: " + nextAction);
+        }
+
         // Reset pins standing count and set ball to starting position
+        numPinsStandingBeforeBowl = lastStandingCount;
         lastStandingCount = -1;
         ballEnteredBox = false;
         ball.Reset();
