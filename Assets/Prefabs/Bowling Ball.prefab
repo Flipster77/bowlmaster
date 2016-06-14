@@ -45,7 +45,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: e57ea3989dc7f4e50bd55982de841177, type: 2}
+  - {fileID: 2100000, guid: 89db87e4d8a384c1da9d8ce75612f3a4, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -82,7 +82,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!82 &8263772
 AudioSource:
   m_ObjectHideFlags: 1

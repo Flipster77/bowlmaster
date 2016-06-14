@@ -9,6 +9,9 @@ public class DragLaunch : MonoBehaviour {
     private float laneLowerBound;
     private float laneUpperBound;
 
+    private const float MIN_Z_VELOCITY = 400f;
+    private const float MAX_Z_VELOCITY = 2000f;
+
     private Ball ball;
 
     private Vector3 startPos;
@@ -48,6 +51,7 @@ public class DragLaunch : MonoBehaviour {
 
         float xVelocity = dragDistance.x / dragDuration;
         float zVelocity = dragDistance.y / dragDuration;
+        zVelocity = Mathf.Clamp(zVelocity, MIN_Z_VELOCITY, MAX_Z_VELOCITY);
 
         Vector3 launchVelocity = new Vector3(xVelocity, 0f, zVelocity);
         ball.Launch(launchVelocity);

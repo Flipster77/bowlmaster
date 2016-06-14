@@ -6,7 +6,8 @@ using UnityEngine;
 [TestFixture]
 public class ActionMasterTest {
 
-    private ActionMaster actionMaster;
+    private List<int> bowls;
+
     private ActionMaster.Action endTurn = ActionMaster.Action.EndTurn;
     private ActionMaster.Action tidy = ActionMaster.Action.Tidy;
     private ActionMaster.Action reset = ActionMaster.Action.Reset;
@@ -14,7 +15,7 @@ public class ActionMasterTest {
     
     [SetUp]
     public void Setup() {
-        actionMaster = new ActionMaster();
+        bowls = new List<int>();
     }
 
     [Test]
@@ -24,113 +25,120 @@ public class ActionMasterTest {
 
     [Test]
     public void T01OneStrikeReturnsEndTurn() {
-        List<int> bowl = new List<int>(new int[] { 10 });
-        Assert.AreEqual(endTurn, actionMaster.GetNextAction(bowl));
+        bowls.Add(10);
+        Assert.AreEqual(endTurn, ActionMaster.GetNextAction(bowls));
     }
 
     [Test]
     public void T02BowlEightReturnsTidy() {
-        List<int> bowl = new List<int>(new int[] { 8 });
-        Assert.AreEqual(tidy, actionMaster.GetNextAction(bowl));
+        bowls.Add(8);
+        Assert.AreEqual(tidy, ActionMaster.GetNextAction(bowls));
     }
 
     [Test]
     public void T03BowlTwoThenEightReturnsEndTurn() {
-        List<int> bowls = new List<int>();
-        bowls.Add(8);
-        Assert.AreEqual(tidy, actionMaster.GetNextAction(bowls));
         bowls.Add(2);
-        Assert.AreEqual(endTurn, actionMaster.GetNextAction(bowls));
+        bowls.Add(8);
+        Assert.AreEqual(endTurn, ActionMaster.GetNextAction(bowls));
     }
 
     [Test]
     public void T04TwoGutterBalls() {
-        List<int> bowls = new List<int>();
         bowls.Add(0);
-        Assert.AreEqual(tidy, actionMaster.GetNextAction(bowls));
+        Assert.AreEqual(tidy, ActionMaster.GetNextAction(bowls));
         bowls.Add(0);
-        Assert.AreEqual(endTurn, actionMaster.GetNextAction(bowls));
+        Assert.AreEqual(endTurn, ActionMaster.GetNextAction(bowls));
     }
 
     [Test]
     public void T05AllGutterBalls() {
-        List<int> bowls = new List<int>();
 
+        // Check first nine frames behave correctly
         for (int i = 0; i < 9; i++) {
             bowls.Add(0);
-            Assert.AreEqual(tidy, actionMaster.GetNextAction(bowls));
+            Assert.AreEqual(tidy, ActionMaster.GetNextAction(bowls));
             bowls.Add(0);
-            Assert.AreEqual(endTurn, actionMaster.GetNextAction(bowls));
+            Assert.AreEqual(endTurn, ActionMaster.GetNextAction(bowls));
         }
+
+        // Check tenth frame behaves correctly
         bowls.Add(0);
-        Assert.AreEqual(tidy, actionMaster.GetNextAction(bowls));
+        Assert.AreEqual(tidy, ActionMaster.GetNextAction(bowls));
         bowls.Add(0);
-        Assert.AreEqual(endGame, actionMaster.GetNextAction(bowls));
+        Assert.AreEqual(endGame, ActionMaster.GetNextAction(bowls));
     }
 
     [Test]
     public void T06AllSpares() {
-        List<int> bowls = new List<int>();
 
+        // Check first nine frames behave correctly
         for (int i = 0; i < 9; i++) {
             bowls.Add(8);
-            Assert.AreEqual(tidy, actionMaster.GetNextAction(bowls));
+            Assert.AreEqual(tidy, ActionMaster.GetNextAction(bowls));
             bowls.Add(2);
-            Assert.AreEqual(endTurn, actionMaster.GetNextAction(bowls));
+            Assert.AreEqual(endTurn, ActionMaster.GetNextAction(bowls));
         }
+
+        // Check tenth frame behaves correctly
         bowls.Add(8);
-        Assert.AreEqual(tidy, actionMaster.GetNextAction(bowls));
+        Assert.AreEqual(tidy, ActionMaster.GetNextAction(bowls));
         bowls.Add(2);
-        Assert.AreEqual(reset, actionMaster.GetNextAction(bowls));
+        Assert.AreEqual(reset, ActionMaster.GetNextAction(bowls));
         bowls.Add(8);
-        Assert.AreEqual(endGame, actionMaster.GetNextAction(bowls));
+        Assert.AreEqual(endGame, ActionMaster.GetNextAction(bowls));
     }
 
     [Test]
     public void T07AllStrikes() {
-        List<int> bowls = new List<int>();
 
+        // Check first nine frames behave correctly
         for (int i = 0; i < 9; i++) {
             bowls.Add(10);
-            Assert.AreEqual(endTurn, actionMaster.GetNextAction(bowls));
+            Assert.AreEqual(endTurn, ActionMaster.GetNextAction(bowls));
         }
+
+        // Check tenth frame behaves correctly
         bowls.Add(10);
-        Assert.AreEqual(reset, actionMaster.GetNextAction(bowls));
+        Assert.AreEqual(reset, ActionMaster.GetNextAction(bowls));
         bowls.Add(10);
-        Assert.AreEqual(reset, actionMaster.GetNextAction(bowls));
+        Assert.AreEqual(reset, ActionMaster.GetNextAction(bowls));
         bowls.Add(10);
-        Assert.AreEqual(endGame, actionMaster.GetNextAction(bowls));
+        Assert.AreEqual(endGame, ActionMaster.GetNextAction(bowls));
     }
 
     [Test]
     public void T08StrikeThenGutterballsOnLastFrame() {
-        List<int> bowls = new List<int>();
 
+        // Check first nine frames behave correctly
         for (int i = 0; i < 9; i++) {
             bowls.Add(10);
-            Assert.AreEqual(endTurn, actionMaster.GetNextAction(bowls));
+            Assert.AreEqual(endTurn, ActionMaster.GetNextAction(bowls));
         }
+
+        // Check tenth frame behaves correctly
         bowls.Add(10);
-        Assert.AreEqual(reset, actionMaster.GetNextAction(bowls));
+        Assert.AreEqual(reset, ActionMaster.GetNextAction(bowls));
         bowls.Add(0);
-        Assert.AreEqual(tidy, actionMaster.GetNextAction(bowls));
+        Assert.AreEqual(tidy, ActionMaster.GetNextAction(bowls));
         bowls.Add(0);
-        Assert.AreEqual(endGame, actionMaster.GetNextAction(bowls));
+        Assert.AreEqual(endGame, ActionMaster.GetNextAction(bowls));
     }
 
     [Test]
     public void T09StrikeThenOnesOnLastFrame() {
-        List<int> bowls = new List<int>();
 
+        // Check first nine frames behave correctly
         for (int i = 0; i < 9; i++) {
             bowls.Add(10);
-            Assert.AreEqual(endTurn, actionMaster.GetNextAction(bowls));
+            Assert.AreEqual(endTurn, ActionMaster.GetNextAction(bowls));
         }
+
+        // Check tenth frame behaves correctly
         bowls.Add(10);
-        Assert.AreEqual(reset, actionMaster.GetNextAction(bowls));
+        Assert.AreEqual(reset, ActionMaster.GetNextAction(bowls));
         bowls.Add(1);
-        Assert.AreEqual(tidy, actionMaster.GetNextAction(bowls));
+        Assert.AreEqual(tidy, ActionMaster.GetNextAction(bowls));
         bowls.Add(1);
-        Assert.AreEqual(endGame, actionMaster.GetNextAction(bowls));
+        Assert.AreEqual(endGame, ActionMaster.GetNextAction(bowls));
     }
 }

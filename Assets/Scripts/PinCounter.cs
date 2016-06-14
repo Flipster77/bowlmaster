@@ -75,6 +75,9 @@ public class PinCounter : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Resets the number of standing pins.
+    /// </summary>
     public void PinsReset() {
         numPinsStandingBeforeBowl = 10;
         pinCountDisplay.text = "10";
