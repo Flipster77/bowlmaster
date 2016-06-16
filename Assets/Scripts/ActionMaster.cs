@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-public class ActionMaster {
+public static class ActionMaster {
 
     public enum Action {Tidy, Reset, EndTurn, EndGame};
 

@@ -5,13 +5,13 @@ using System.Collections.Generic;
 
 public class ScoreDisplay : MonoBehaviour {
 
-    public Text[] bowls;
-    public Text[] frameScores;
+    public Text[] bowlDisplays;
+    public Text[] scoreDisplays;
 
 	// Use this for initialization
 	void Start () {
-        SetBowlNumbers();
-        SetScoreNumbers();
+        ClearBowlNumbers();
+        ClearScoreNumbers();
     }
 	
 	// Update is called once per frame
@@ -19,19 +19,38 @@ public class ScoreDisplay : MonoBehaviour {
 	
 	}
 
-    private void SetBowlNumbers() {
-        int i = 1;
-        foreach (Text bowlDisplay in bowls) {
-            bowlDisplay.text = i.ToString();
-            i++;
+    public void FillBowls(List<int> bowls) {
+        string formattedBowls = ScoreDisplay.FormatBowls(bowls);
+        for (int i = 0; i < formattedBowls.Length; i++) {
+            bowlDisplays[i].text = formattedBowls[i].ToString();
         }
     }
 
-    private void SetScoreNumbers() {
-        int i = 1;
-        foreach (Text scoreDisplay in frameScores) {
-            scoreDisplay.text = i.ToString();
-            i++;
+    public void FillFrames(List<int> scores) {
+        for (int i = 0; i < scores.Count; i++) {
+            scoreDisplays[i].text = scores[i].ToString();
+        }
+    }
+
+    public static string FormatBowls(List<int> bowls) {
+        string result = "";
+
+        foreach (int bowl in bowls) {
+            result += bowl.ToString();
+        }
+
+        return result;
+    }
+
+    private void ClearBowlNumbers() {
+        foreach (Text bowlDisplay in bowlDisplays) {
+            bowlDisplay.text = "";
+        }
+    }
+
+    private void ClearScoreNumbers() {
+        foreach (Text scoreDisplay in scoreDisplays) {
+            scoreDisplay.text = "";
         }
     }
 }

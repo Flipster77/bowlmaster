@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class ScoreMaster {
+public static class ScoreMaster {
 
     /// <summary>
     /// An integer used to signify that the score for a frame is currently unknown.

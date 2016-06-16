@@ -1071,7 +1071,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3b7a9eee7736c04e80ab7f8f089513d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bowls:
+  bowlDisplays:
   - {fileID: 11497284}
   - {fileID: 11443870}
   - {fileID: 11453638}
@@ -1093,7 +1093,7 @@ MonoBehaviour:
   - {fileID: 11466990}
   - {fileID: 11473956}
   - {fileID: 11470002}
-  frameScores:
+  scoreDisplays:
   - {fileID: 11464750}
   - {fileID: 11444316}
   - {fileID: 11407006}
@@ -1223,7 +1223,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '#'
+  m_Text: '2
+
+'
 --- !u!114 &11406860
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1343,7 +1345,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '#'
+  m_Text: 7
 --- !u!114 &11408452
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1436,7 +1438,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '#'
+  m_Text: '4
+
+'
 --- !u!114 &11414600
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1758,7 +1762,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '#'
+  m_Text: '9
+
+'
 --- !u!114 &11443652
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2008,7 +2014,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '#'
+  m_Text: 10
 --- !u!114 &11453638
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2870,7 +2876,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '#'
+  m_Text: '8
+
+'
 --- !u!114 &11490116
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2988,7 +2996,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '#'
+  m_Text: '6
+
+'
 --- !u!114 &11492650
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3048,7 +3058,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '#'
+  m_Text: '3
+
+'
 --- !u!114 &11494572
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3141,7 +3153,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '#'
+  m_Text: '1
+
+'
 --- !u!114 &11495004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3174,7 +3188,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '#'
+  m_Text: '5
+
+'
 --- !u!114 &11497284
 MonoBehaviour:
   m_ObjectHideFlags: 1
