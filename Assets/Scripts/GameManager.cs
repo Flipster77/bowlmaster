@@ -28,8 +28,13 @@ public class GameManager : MonoBehaviour {
 
             scoreDisplay.FillBowls(bowls);
             scoreDisplay.FillFrames(frameScores);
-        } catch (SystemException e) {
-            Debug.LogWarning("Exception occurred during BowlComplete method: " + e.ToString() + e.StackTrace);
+        } catch (Exception ex) {
+            if (ex is SystemException || ex is UnityException) {
+                Debug.LogWarning("Exception occurred during BowlComplete method: " + ex.ToString() + ex.StackTrace);
+            }
+            else {
+                throw;
+            }
         }
         
     }

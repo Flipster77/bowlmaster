@@ -35,8 +35,24 @@ public class ScoreDisplay : MonoBehaviour {
     public static string FormatBowls(List<int> bowls) {
         string result = "";
 
-        foreach (int bowl in bowls) {
-            result += bowl.ToString();
+        for (int i = 0; i < bowls.Count; i++) {
+
+            if (bowls[i] == 0) {
+                result += "-";
+            }
+            else if (bowls[i] == 10 && i >= 18) {
+                result += "X";
+            }
+            else if (bowls[i] == 10 && i % 2 == 0) {
+                result += " X";
+                i++;
+            }
+            else if (i != 0 && bowls[i] + bowls[i-1] == 10) {
+                result += "/";
+            }
+            else {
+                result += bowls[i].ToString();
+            }
         }
 
         return result;

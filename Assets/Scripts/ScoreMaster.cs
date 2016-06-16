@@ -87,7 +87,7 @@ public static class ScoreMaster {
         }
 
         // If the next bowl was also a strike, skip another zero
-        if (bowls[nextBowlIndex] == 10 && strikeIndex < 18) {
+        if (bowls[nextBowlIndex] == 10 && nextBowlIndex < 18) {
             nextBowlIndex += 2;
         }
         // As before, if this was not a strike or we're in the last lane,

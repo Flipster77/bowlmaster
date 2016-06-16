@@ -288,4 +288,14 @@ public class ScoreMasterTest {
 
         CollectionAssert.AreEqual(expectedScores, actualScores);
     }
+
+    [Test]
+    public void T27OneBowlOffPerfectGame() {
+        List<int> bowls = new List<int>(new int[] { 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 10 });
+        List<int> expectedScores = new List<int>(new int[] { 30, 60, 90, 120, 150, 180, 210, 240, 270 });
+
+        List<int> actualScores = ScoreMaster.ScoreFrames(bowls);
+
+        CollectionAssert.AreEqual(expectedScores, actualScores);
+    }
 }
