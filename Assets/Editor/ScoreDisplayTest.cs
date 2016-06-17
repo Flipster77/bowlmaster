@@ -125,4 +125,11 @@ public class ScoreDisplayTest {
         string bowlsString = " X X X X X X X X XXXX";
         Assert.AreEqual(bowlsString, ScoreDisplay.FormatBowls(bowls.ToList()));
     }
+
+    [Test]
+    public void T17StrikeThenSpareInLastFrame() {
+        int[] bowls = { 1, 2, 3, 4, 10, 0, 9, 0, 8, 1, 7, 2, 6, 3, 5, 4, 4, 5, 10, 8, 2 };
+        string bowlsString = "1234 X9-8172635445X8/";
+        Assert.AreEqual(bowlsString, ScoreDisplay.FormatBowls(bowls.ToList()));
+    }
 }
