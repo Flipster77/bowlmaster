@@ -64,10 +64,8 @@ public class DragLaunch : MonoBehaviour {
     public void MoveStart(float xNudge) {
 
         if (!ball.inPlay) {
-
-            if (ball.transform.position.x + xNudge >= laneLowerBound && ball.transform.position.x + xNudge <= laneUpperBound) {
-                ball.transform.Translate(new Vector3(xNudge, 0f, 0f));
-            }
+            float newXPos = Mathf.Clamp(ball.transform.position.x + xNudge, laneLowerBound, laneUpperBound);
+            ball.transform.position = new Vector3(newXPos, ball.transform.position.y, ball.transform.position.z);
         }
     }
 }

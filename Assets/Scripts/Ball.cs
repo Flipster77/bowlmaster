@@ -26,6 +26,12 @@ public class Ball : MonoBehaviour {
         initialRotation = transform.rotation;
     }
 
+    void Update() {
+        if (!inPlay) {
+            transform.Rotate(new Vector3(0f, 1f, 0f));
+        }
+    }
+
     /// <summary>
     /// Launches the ball using the given vector as its velocity.
     /// </summary>
