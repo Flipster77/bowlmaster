@@ -132,4 +132,11 @@ public class ScoreDisplayTest {
         string bowlsString = "1234 X9-8172635445X8/";
         Assert.AreEqual(bowlsString, ScoreDisplay.FormatBowls(bowls.ToList()));
     }
+
+    [Test]
+    public void T18DontDisplaySpareAcrossFrames() {
+        int[] bowls = { 8, 2, 7, 0, 0, 10, 7, 2, 8, 0 };
+        string bowlsString = "8/7--/728-";
+        Assert.AreEqual(bowlsString, ScoreDisplay.FormatBowls(bowls.ToList()));
+    }
 }

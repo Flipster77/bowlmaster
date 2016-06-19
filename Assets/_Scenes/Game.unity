@@ -124,14 +124,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 11488342, guid: 94312949f629a194cb3bfd219b1b253f, type: 2}
-      propertyPath: pinCountDisplay
-      value: 
-      objectReference: {fileID: 420424456}
-    - target: {fileID: 6522784, guid: 94312949f629a194cb3bfd219b1b253f, type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 94312949f629a194cb3bfd219b1b253f, type: 2}
   m_IsPrefabParent: 0
@@ -616,6 +608,10 @@ Prefab:
       propertyPath: ball
       value: 
       objectReference: {fileID: 1335499500}
+    - target: {fileID: 4504732, guid: b47d6efef6dd6654583d6f31eb04ecb2, type: 2}
+      propertyPath: m_CustomSkybox
+      value: 
+      objectReference: {fileID: 2100000, guid: 88ec9a13802800449aaf825aff3aadc7, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b47d6efef6dd6654583d6f31eb04ecb2, type: 2}
   m_IsPrefabParent: 0

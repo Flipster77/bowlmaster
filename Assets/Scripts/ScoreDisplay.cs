@@ -68,7 +68,7 @@ public class ScoreDisplay : MonoBehaviour {
                 i++;
             }
             // SPARE = '/'
-            else if (i != 0 && bowls[i] + bowls[i-1] == 10) {
+            else if ((i % 2 != 0 || i > 19) && bowls[i] + bowls[i-1] == 10) {
                 result += "/";
             }
             // All other bowls use the number of pins knocked down
