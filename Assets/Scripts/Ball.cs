@@ -32,6 +32,12 @@ public class Ball : MonoBehaviour {
         }
     }
 
+    /*void OnTriggerExit(Collider other) {
+        if (other.CompareTag("LaneBox")) {
+            rollingSound.Stop();
+        }
+    }*/
+
     /// <summary>
     /// Launches the ball using the given vector as its velocity.
     /// </summary>
