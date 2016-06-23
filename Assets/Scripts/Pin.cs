@@ -5,6 +5,8 @@ public class Pin : MonoBehaviour {
 
     public float standingThreshold = 10f;
 
+    public AudioClip[] hitSounds;
+
     private Rigidbody rigidbodyReference;
     private bool withinPlayArea = true;
 
@@ -17,6 +19,24 @@ public class Pin : MonoBehaviour {
         withinPlayArea = true;
         initialPosition = transform.position;
         initialRotation = transform.rotation;
+    }
+
+    void OnCollisionEnter(Collision other) {
+        GameObject otherObject = other.gameObject;
+
+        // Hit by ball
+        /*if (otherObject.GetComponent<Ball>() != null) {
+            // Play ball hit sound
+            AudioSource.PlayClipAtPoint(hitSounds[0], transform.position, 1.0f);
+        }
+        else if (otherObject.GetComponent<Pin>() != null) {
+            // Play pin hit sound
+            AudioSource.PlayClipAtPoint(hitSounds[1], transform.position, 1.0f);
+        }
+        else if (otherObject.CompareTag("Lane")) {
+            // Play lane hit sound
+            AudioSource.PlayClipAtPoint(hitSounds[2], transform.position, 1.0f);
+        }*/
     }
 
     /// <summary>
