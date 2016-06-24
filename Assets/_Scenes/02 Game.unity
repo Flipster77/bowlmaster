@@ -405,6 +405,10 @@ Prefab:
       propertyPath: pinCountDisplay
       value: 
       objectReference: {fileID: 420424456}
+    - target: {fileID: 6558814, guid: 947fd1215a0a8b1479d9940919e362d8, type: 2}
+      propertyPath: m_Size.x
+      value: 106
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 947fd1215a0a8b1479d9940919e362d8, type: 2}
   m_IsPrefabParent: 0

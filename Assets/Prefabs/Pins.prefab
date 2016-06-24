@@ -716,7 +716,7 @@ Rigidbody:
   m_GameObject: {fileID: 163912}
   serializedVersion: 2
   m_Mass: 1.53
-  m_Drag: 0
+  m_Drag: 0.1
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -731,7 +731,7 @@ Rigidbody:
   m_GameObject: {fileID: 163564}
   serializedVersion: 2
   m_Mass: 1.53
-  m_Drag: 0
+  m_Drag: 0.1
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -746,7 +746,7 @@ Rigidbody:
   m_GameObject: {fileID: 127270}
   serializedVersion: 2
   m_Mass: 1.53
-  m_Drag: 0
+  m_Drag: 0.1
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -761,7 +761,7 @@ Rigidbody:
   m_GameObject: {fileID: 159758}
   serializedVersion: 2
   m_Mass: 1.53
-  m_Drag: 0
+  m_Drag: 0.1
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -776,7 +776,7 @@ Rigidbody:
   m_GameObject: {fileID: 125192}
   serializedVersion: 2
   m_Mass: 1.53
-  m_Drag: 0
+  m_Drag: 0.1
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -791,7 +791,7 @@ Rigidbody:
   m_GameObject: {fileID: 124518}
   serializedVersion: 2
   m_Mass: 1.53
-  m_Drag: 0
+  m_Drag: 0.1
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -806,7 +806,7 @@ Rigidbody:
   m_GameObject: {fileID: 195816}
   serializedVersion: 2
   m_Mass: 1.53
-  m_Drag: 0
+  m_Drag: 0.1
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -821,7 +821,7 @@ Rigidbody:
   m_GameObject: {fileID: 163838}
   serializedVersion: 2
   m_Mass: 1.53
-  m_Drag: 0
+  m_Drag: 0.1
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -836,7 +836,7 @@ Rigidbody:
   m_GameObject: {fileID: 138038}
   serializedVersion: 2
   m_Mass: 1.53
-  m_Drag: 0
+  m_Drag: 0.1
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -851,7 +851,7 @@ Rigidbody:
   m_GameObject: {fileID: 185118}
   serializedVersion: 2
   m_Mass: 1.53
-  m_Drag: 0
+  m_Drag: 0.1
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -994,6 +994,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4afd32e1902d49c4a9b2d61518406798, type: 3}
   - {fileID: 8300000, guid: 3e79ef526963cb74382277c6e416ae6f, type: 3}
   - {fileID: 8300000, guid: 3c460fe716a70cb4eb39176e9ff6c41c, type: 3}
+  hitSoundThreshold: 20
 --- !u!114 &11423180
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1010,6 +1011,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4afd32e1902d49c4a9b2d61518406798, type: 3}
   - {fileID: 8300000, guid: 3e79ef526963cb74382277c6e416ae6f, type: 3}
   - {fileID: 8300000, guid: 3c460fe716a70cb4eb39176e9ff6c41c, type: 3}
+  hitSoundThreshold: 20
 --- !u!114 &11432942
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1026,6 +1028,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4afd32e1902d49c4a9b2d61518406798, type: 3}
   - {fileID: 8300000, guid: 3e79ef526963cb74382277c6e416ae6f, type: 3}
   - {fileID: 8300000, guid: 3c460fe716a70cb4eb39176e9ff6c41c, type: 3}
+  hitSoundThreshold: 20
 --- !u!114 &11435006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1042,6 +1045,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4afd32e1902d49c4a9b2d61518406798, type: 3}
   - {fileID: 8300000, guid: 3e79ef526963cb74382277c6e416ae6f, type: 3}
   - {fileID: 8300000, guid: 3c460fe716a70cb4eb39176e9ff6c41c, type: 3}
+  hitSoundThreshold: 20
 --- !u!114 &11463674
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1058,6 +1062,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4afd32e1902d49c4a9b2d61518406798, type: 3}
   - {fileID: 8300000, guid: 3e79ef526963cb74382277c6e416ae6f, type: 3}
   - {fileID: 8300000, guid: 3c460fe716a70cb4eb39176e9ff6c41c, type: 3}
+  hitSoundThreshold: 20
 --- !u!114 &11465644
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1074,6 +1079,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4afd32e1902d49c4a9b2d61518406798, type: 3}
   - {fileID: 8300000, guid: 3e79ef526963cb74382277c6e416ae6f, type: 3}
   - {fileID: 8300000, guid: 3c460fe716a70cb4eb39176e9ff6c41c, type: 3}
+  hitSoundThreshold: 20
 --- !u!114 &11468500
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1090,6 +1096,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4afd32e1902d49c4a9b2d61518406798, type: 3}
   - {fileID: 8300000, guid: 3e79ef526963cb74382277c6e416ae6f, type: 3}
   - {fileID: 8300000, guid: 3c460fe716a70cb4eb39176e9ff6c41c, type: 3}
+  hitSoundThreshold: 20
 --- !u!114 &11484192
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1106,6 +1113,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4afd32e1902d49c4a9b2d61518406798, type: 3}
   - {fileID: 8300000, guid: 3e79ef526963cb74382277c6e416ae6f, type: 3}
   - {fileID: 8300000, guid: 3c460fe716a70cb4eb39176e9ff6c41c, type: 3}
+  hitSoundThreshold: 20
 --- !u!114 &11497930
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1122,6 +1130,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4afd32e1902d49c4a9b2d61518406798, type: 3}
   - {fileID: 8300000, guid: 3e79ef526963cb74382277c6e416ae6f, type: 3}
   - {fileID: 8300000, guid: 3c460fe716a70cb4eb39176e9ff6c41c, type: 3}
+  hitSoundThreshold: 20
 --- !u!114 &11499506
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1138,6 +1147,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4afd32e1902d49c4a9b2d61518406798, type: 3}
   - {fileID: 8300000, guid: 3e79ef526963cb74382277c6e416ae6f, type: 3}
   - {fileID: 8300000, guid: 3c460fe716a70cb4eb39176e9ff6c41c, type: 3}
+  hitSoundThreshold: 20
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

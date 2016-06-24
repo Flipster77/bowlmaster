@@ -11,7 +11,7 @@ public class Ball : MonoBehaviour {
     private Vector3 initialPosition;
     private Quaternion initialRotation;
 
-    private Vector3 perfectLaunchVelocity = new Vector3(0f, -5f, 600f);
+    private Vector3 perfectLaunchVelocity = new Vector3(0f, -5f, 750f);
 
     // Use this for initialization
     void Start () {
