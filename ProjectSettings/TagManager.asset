@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Bowl
   - Score
+  - Lane
   - LaneBox
   layers:
   - Default

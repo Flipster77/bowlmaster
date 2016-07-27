@@ -67,7 +67,7 @@ public class PinCounter : MonoBehaviour {
     /// </summary>
     /// <param name="other">The collider that has exited.</param>
     void OnTriggerExit(Collider other) {
-        Pin pinLeaving = other.GetComponentInParent<Pin>();
+        Pin pinLeaving = other.GetComponent<Pin>();
 
         // Pin has left the play area
         if (pinLeaving) {
