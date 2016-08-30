@@ -4,11 +4,6 @@ using System.Collections;
 [RequireComponent (typeof (Ball))]
 public class DragLaunch : MonoBehaviour {
 
-    public Transform lane;
-
-    private float laneLowerBound;
-    private float laneUpperBound;
-
     private const float MIN_Z_VELOCITY = 400f;
     private const float MAX_Z_VELOCITY = 2000f;
 
@@ -20,9 +15,6 @@ public class DragLaunch : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         ball = this.GetComponent<Ball>();
-
-        laneLowerBound = (lane.localScale.x / 2) * -1;
-        laneUpperBound = lane.localScale.x / 2;
 	}
 
     /// <summary>
@@ -49,23 +41,15 @@ public class DragLaunch : MonoBehaviour {
 
         float dragDuration = Time.time - startTime;
 
+        if (dragDuration <= 0) {
+            dragDuration = 0.0001f;
+        }
+
         float xVelocity = dragDistance.x / dragDuration;
         float zVelocity = dragDistance.y / dragDuration;
         zVelocity = Mathf.Clamp(zVelocity, MIN_Z_VELOCITY, MAX_Z_VELOCITY);
 
         Vector3 launchVelocity = new Vector3(xVelocity, 0f, zVelocity);
         ball.Launch(launchVelocity);
-    }
-
-    /// <summary>
-    /// Moves the ball start position.
-    /// </summary>
-    /// <param name="xNudge">The distance to move the ball left/right.</param>
-    public void MoveStart(float xNudge) {
-
-        if (!ball.inPlay) {
-            float newXPos = Mathf.Clamp(ball.transform.position.x + xNudge, laneLowerBound, laneUpperBound);
-            ball.transform.position = new Vector3(newXPos, ball.transform.position.y, ball.transform.position.z);
-        }
     }
 }

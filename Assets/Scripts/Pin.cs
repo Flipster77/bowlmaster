@@ -72,26 +72,22 @@ public class Pin : MonoBehaviour {
             if (otherObject.GetComponent<Ball>() != null) {
                 // Play ball hit sound
                 AudioSource.PlayClipAtPoint(hitSounds[0], transform.position, 1.0f);
-                Debug.Log("Collision between " + name + " and " + otherObject.name + ": " + speedOfCollision);
             }
             // Hit another pin
             else if (otherObject.GetComponent<Pin>() != null) {
                 // Play pin hit sound
                 AudioSource.PlayClipAtPoint(hitSounds[1], transform.position, 1.0f);
-                Debug.Log("Collision between " + name + " and " + otherObject.name + ": " + speedOfCollision);
             }
             // Hit the lane
             else if (otherObject.CompareTag("Lane") && timeSinceLastHitLane > MIN_LANE_HIT_TIME) {
                 // Play lane hit sound
                 AudioSource.PlayClipAtPoint(hitSounds[2], transform.position, 1.0f);
-                Debug.Log("Collision between " + name + " and " + otherObject.name + ": " + speedOfCollision);
                 lastHitLaneTime = Time.time;
             }
             // Hit something else
             else {
                 // Play pin hit sound
                 AudioSource.PlayClipAtPoint(hitSounds[1], transform.position, 1.0f);
-                Debug.Log("Collision between " + name + " and " + otherObject.name + ": " + speedOfCollision);
             }
             lastHitTime = Time.time;
         }

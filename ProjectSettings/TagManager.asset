@@ -8,6 +8,7 @@ TagManager:
   - Score
   - Lane
   - LaneBox
+  - BallSlider
   layers:
   - Default
   - TransparentFX
