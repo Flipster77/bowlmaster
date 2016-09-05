@@ -29,7 +29,7 @@ public class OptionsController : MonoBehaviour {
 	}
 	
 	public void SetDefaults() {
-		volumeSlider.value = 0.8f;
+		volumeSlider.value = 0.6f;
 		difficultySlider.value = 1f;
 	}
 }
