@@ -1,18 +1,20 @@
 fileFormatVersion: 2
-guid: 97d0e5ee57cb944ae9d439cef80d380a
-timeCreated: 1426527280
+guid: 1df6f337bfa5f86459cedb4d505533c7
+timeCreated: 1473313431
 licenseType: Free
 TrueTypeFontImporter:
-  serializedVersion: 2
+  serializedVersion: 4
   fontSize: 16
   forceTextureCase: -2
-  characterSpacing: 1
-  characterPadding: 0
+  characterSpacing: 0
+  characterPadding: 1
   includeFontData: 1
-  use2xBehaviour: 0
-  fontNames: []
+  fontNames:
+  - Bitsumishi
+  fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
+  ascentCalculationMode: 1
   userData: 
   assetBundleName: 
   assetBundleVariant: 

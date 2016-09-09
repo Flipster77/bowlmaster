@@ -54,9 +54,9 @@ public class ScoreDisplay : MonoBehaviour {
         string result = "";
 
         for (int i = 0; i < bowls.Count; i++) {
-            // GUTTERBALL = '-'
+            // GUTTERBALL = '—'
             if (bowls[i] == 0) {
-                result += "-";
+                result += "—";
             }
             // STRIKE IN LAST FRAME = 'X'
             else if (bowls[i] == 10 && i >= 18) {
@@ -67,9 +67,9 @@ public class ScoreDisplay : MonoBehaviour {
                 result += " X";
                 i++;
             }
-            // SPARE = '/'
+            // SPARE = '╱'
             else if ((i % 2 != 0 || i > 19) && bowls[i] + bowls[i-1] == 10) {
-                result += "/";
+                result += "╱";
             }
             // All other bowls use the number of pins knocked down
             else {
