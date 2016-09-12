@@ -35,7 +35,8 @@ public class PinSetter : MonoBehaviour {
     }
 
     /// <summary>
-    /// Raises the pins that are standing.
+    /// Raises the pins that are standing to above the swiper.
+    /// Called from the animator.
     /// </summary>
     public void RaisePins() {
 
@@ -49,7 +50,8 @@ public class PinSetter : MonoBehaviour {
     }
 
     /// <summary>
-    /// Loweres the pins that are standing.
+    /// Lowers the pins that are standing to the floor.
+    /// Called from the animator.
     /// </summary>
     public void LowerPins() {
 
@@ -60,19 +62,23 @@ public class PinSetter : MonoBehaviour {
                 pin.GetComponent<Rigidbody>().useGravity = true;
             }
         }
+
+        pinCounter.ResetPinsKnockedOverDisplay();
     }
 
     /// <summary>
-    /// Resets the pins to their starting positions.
+    /// Resets all pins to their raised position above the swiper.
     /// </summary>
     public void RenewPins() {
 
+        // Reset the pins to their start position
         foreach (Pin pin in pins) {
             pin.Reset();
         }
-
+        // Raise the pins above the swiper
         RaisePins();
 
-        pinCounter.PinsReset();
+        // Reset the pin counter
+        pinCounter.AllPinsReset();
     }
 }

@@ -5,9 +5,9 @@ using System.Collections;
 public class PinCounter : MonoBehaviour {
 
     /// <summary>
-    /// The text used to display the number of standing pins.
+    /// The text used to display the number of pins knocked down this bowl.
     /// </summary>
-    public Text pinCountDisplay;
+    public Text pinsKnockedOverDisplay;
 
 
     /// <summary>
@@ -25,7 +25,13 @@ public class PinCounter : MonoBehaviour {
     /// </summary>
     private const float SETTLE_TIME = 3f;
 
+    /// <summary>
+    /// The number of pins standing before this bowl.
+    /// </summary>
     private int numPinsStandingBeforeBowl = 10;
+    /// <summary>
+    /// Whether or not the ball has entered the pin area this bowl.
+    /// </summary>
     private bool ballEnteredPinArea;
 
     private Ball ball;
@@ -76,18 +82,27 @@ public class PinCounter : MonoBehaviour {
     }
 
     /// <summary>
-    /// Resets the number of standing pins.
+    /// Resets the display for the number of pins knocked over this bowl.
     /// </summary>
-    public void PinsReset() {
+    public void ResetPinsKnockedOverDisplay() {
+        pinsKnockedOverDisplay.text = "0";
+        pinsKnockedOverDisplay.color = Color.white;
+    }
+
+    /// <summary>
+    /// Resets the number of standing pins and the number of pins knocked over this bowl.
+    /// </summary>
+    public void AllPinsReset() {
         numPinsStandingBeforeBowl = 10;
-        pinCountDisplay.text = "10";
+        ResetPinsKnockedOverDisplay();
     }
 
     /// <summary>
     /// Updates how many pins are standing and checks whether they have settled.
     /// </summary>
     private void UpdatePinsStanding() {
-        // Update the last standing count
+        // If the current number of pins standing is different,
+        // use it as the last standing count
         int currentStandingCount = CountPinsStanding();
         if (currentStandingCount != lastStandingCount) {
             lastChangeTime = Time.time;
@@ -95,9 +110,9 @@ public class PinCounter : MonoBehaviour {
             return;
         }
 
-        // Update pin count display
-        pinCountDisplay.color = Color.red;
-        pinCountDisplay.text = currentStandingCount.ToString();
+        // Pin/s have been knocked over, update the display
+        pinsKnockedOverDisplay.color = Color.red;
+        pinsKnockedOverDisplay.text = (numPinsStandingBeforeBowl - currentStandingCount).ToString();
 
         // Check whether the pins have settled for # of seconds
         // If so, record the bowl
@@ -124,10 +139,11 @@ public class PinCounter : MonoBehaviour {
     }
 
     /// <summary>
-    /// Resets ball to the starting position and reset pin standing count.
+    /// Notifies the game manager that a bowl has been completed.
+    /// Resets ball to the starting position and resets the pin standing count.
     /// </summary>
     private void RecordBowl() {
-        pinCountDisplay.color = Color.green;
+        pinsKnockedOverDisplay.color = Color.green;
 
         // The number of pins knocked down this bowl is:
         // the number of pins standing beforehand - the number of pins standing now

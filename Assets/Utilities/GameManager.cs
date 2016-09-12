@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour {
     }
 
     /// <summary>
-    /// Performs the action specified by the parameter.
+    /// Performs the tasks required by the specified action.
     /// </summary>
     /// <param name="nextAction">The next action to perform in the game.</param>
     private void PerformAction(ActionMaster.Action nextAction) {
