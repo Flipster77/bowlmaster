@@ -22,7 +22,7 @@ GameObject:
   - 222: {fileID: 222000010854482354}
   - 114: {fileID: 114000010700773812}
   m_Layer: 5
-  m_Name: UI Label
+  m_Name: Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

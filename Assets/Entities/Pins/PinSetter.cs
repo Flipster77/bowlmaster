@@ -20,7 +20,20 @@ public class PinSetter : MonoBehaviour {
         animator = this.GetComponent<Animator>();
     }
 
-    
+    /// <summary>
+    /// Starts the animation to tidy the pin area.
+    /// </summary>
+    public void TidyPins() {
+        animator.SetTrigger("tidyTrigger");
+    }
+
+    /// <summary>
+    /// Starts the animation to reset the pin area.
+    /// </summary>
+    public void ResetPins() {
+        animator.SetTrigger("resetTrigger");
+    }
+
     /// <summary>
     /// Raises the pins that are standing.
     /// </summary>
@@ -61,22 +74,5 @@ public class PinSetter : MonoBehaviour {
         RaisePins();
 
         pinCounter.PinsReset();
-    }
-
-    
-    public void PerformAction(ActionMaster.Action nextAction) {
-        // Perform correct action
-        switch (nextAction) {
-            case ActionMaster.Action.Tidy:
-                animator.SetTrigger("tidyTrigger");
-                break;
-            case ActionMaster.Action.Reset:
-            case ActionMaster.Action.EndTurn:
-                animator.SetTrigger("resetTrigger");
-                break;
-            case ActionMaster.Action.EndGame:
-            default:
-                throw new UnityException("No specified behaviour for action: " + nextAction);
-        }
     }
 }

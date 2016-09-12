@@ -59,7 +59,7 @@ public class ScoreDisplay : MonoBehaviour {
                 result += "—";
             }
             // STRIKE IN LAST FRAME = 'X'
-            else if (bowls[i] == 10 && i >= 18) {
+            else if (bowls[i] == 10 && (i == 18 || i > 18 && bowls[i-1] != 0)) {
                 result += "X";
             }
             // STRIKE IN FRAMES 1-9 = ' X'
