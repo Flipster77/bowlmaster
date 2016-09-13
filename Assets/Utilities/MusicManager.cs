@@ -45,7 +45,6 @@ public class MusicManager : MonoBehaviour {
 	}
 
     private void SetupMusic() {
-        Debug.Log("MusicManager SetupMusic: " + this.GetInstanceID());
         if (music == null) {
             music = GetComponent<AudioSource>();
         }

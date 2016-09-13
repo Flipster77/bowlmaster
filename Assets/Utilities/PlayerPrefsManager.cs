@@ -5,8 +5,9 @@ using System.Collections;
 public class PlayerPrefsManager : MonoBehaviour {
 
 	const string MASTER_VOLUME_KEY = "master_volume";
-	const string DIFFICULTY_KEY = "difficulty";
-	const string LEVEL_KEY = "level_unlocked_";
+	const string X_SENSITIVITY_KEY = "x_sensitivity";
+    const string Y_SENSITIVITY_KEY = "y_sensitivity";
+    const string LEVEL_KEY = "level_unlocked_";
 
 	public static void SetMasterVolume(float volume) {
 		if (volume >= 0f && volume <= 1f) {
@@ -40,15 +41,28 @@ public class PlayerPrefsManager : MonoBehaviour {
 		}
 	}
 	
-	public static void SetDifficulty(int difficulty) {
-		if (difficulty >= 1 && difficulty <= 3) {
-			PlayerPrefs.SetInt(DIFFICULTY_KEY, difficulty);
+	public static void SetXSensitivity(float sensitivity) {
+		if (sensitivity >= 0.1f && sensitivity <= 1f) {
+			PlayerPrefs.SetFloat(X_SENSITIVITY_KEY, sensitivity);
 		} else {
-			Debug.LogError("Attempted to set difficulty to invalid value: " + difficulty);
+			Debug.LogError("Attempted to set x sensitivity to invalid value: " + sensitivity);
 		}
 	}
 	
-	public static int GetDifficulty() {
-		return PlayerPrefs.GetInt(DIFFICULTY_KEY);
+	public static float GetXSensitivity() {
+		return PlayerPrefs.GetFloat(X_SENSITIVITY_KEY);
 	}
+
+    public static void SetYSensitivity(float sensitivity) {
+        if (sensitivity >= 0.5f && sensitivity <= 2.5f) {
+            PlayerPrefs.SetFloat(Y_SENSITIVITY_KEY, sensitivity);
+        }
+        else {
+            Debug.LogError("Attempted to set y sensitivity to invalid value: " + sensitivity);
+        }
+    }
+
+    public static float GetYSensitivity() {
+        return PlayerPrefs.GetFloat(Y_SENSITIVITY_KEY);
+    }
 }
