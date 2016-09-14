@@ -4,10 +4,11 @@ using System.Collections;
 
 public class PlayerPrefsManager : MonoBehaviour {
 
-	const string MASTER_VOLUME_KEY = "master_volume";
-	const string X_SENSITIVITY_KEY = "x_sensitivity";
-    const string Y_SENSITIVITY_KEY = "y_sensitivity";
-    const string LEVEL_KEY = "level_unlocked_";
+	private const string MASTER_VOLUME_KEY = "master_volume";
+    private const string GAME_TRACK_INDEX_KEY = "game_track_index";
+	private const string X_SENSITIVITY_KEY = "x_sensitivity";
+    private const string Y_SENSITIVITY_KEY = "y_sensitivity";
+    private const string LEVEL_KEY = "level_unlocked_";
 
 	public static void SetMasterVolume(float volume) {
 		if (volume >= 0f && volume <= 1f) {
@@ -20,9 +21,21 @@ public class PlayerPrefsManager : MonoBehaviour {
 	public static float GetMasterVolume() {
 		return PlayerPrefs.GetFloat(MASTER_VOLUME_KEY);
 	}
-	
-	
-	public static void UnlockLevel(int level) {
+
+    public static void SetGameTrackIndex(int track) {
+        if (track >= 0 && track <= 2) {
+            PlayerPrefs.SetInt(GAME_TRACK_INDEX_KEY, track);
+        }
+        else {
+            Debug.LogError("Attempted to set game track index to invalid value: " + track);
+        }
+    }
+
+    public static int GetGameTrackIndex() {
+        return PlayerPrefs.GetInt(GAME_TRACK_INDEX_KEY);
+    }
+
+    public static void UnlockLevel(int level) {
 		if (level <= SceneManager.GetActiveScene().buildIndex - 1) {
 			PlayerPrefs.SetInt(LEVEL_KEY + level.ToString(), 1);
 		} else {

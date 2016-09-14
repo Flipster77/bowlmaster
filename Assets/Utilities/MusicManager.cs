@@ -4,7 +4,8 @@ using System.Collections;
 
 public class MusicManager : MonoBehaviour {
 
-	public AudioClip[] levelMusicArray;
+	public AudioClip[] musicTracks;
+    public int[] levelMusicIndexes;
 
     private static MusicManager instance = null;
     private AudioSource music;
@@ -49,11 +50,13 @@ public class MusicManager : MonoBehaviour {
             music = GetComponent<AudioSource>();
         }
         music.volume = PlayerPrefsManager.GetMasterVolume();
+        levelMusicIndexes[2] = PlayerPrefsManager.GetGameTrackIndex();
     }
 	
 	private void PlayLevelMusic(int level) {
+        int trackIndex = levelMusicIndexes[level];
 
-        AudioClip levelClip = levelMusicArray[level];
+        AudioClip levelClip = musicTracks[trackIndex];
 		
 		if (instance == this && levelClip != null) {
 			Debug.Log("Playing clip: " + levelClip.ToString());

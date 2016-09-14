@@ -115,11 +115,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89dac7cbb2774e84ebaa203e29f4f63f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelMusicArray:
-  - {fileID: 8300000, guid: 893082a6b5e555d48a95ab561739903e, type: 3}
+  musicTracks:
   - {fileID: 8300000, guid: 893082a6b5e555d48a95ab561739903e, type: 3}
   - {fileID: 8300000, guid: 401b7cc471ae447488e348160b1592e9, type: 3}
-  - {fileID: 8300000, guid: 893082a6b5e555d48a95ab561739903e, type: 3}
+  - {fileID: 8300000, guid: 28546bcb65a62604fa3de37b9ee8405a, type: 3}
+  levelMusicIndexes: 00000000000000000100000000000000
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
