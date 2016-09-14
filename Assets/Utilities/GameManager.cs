@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour {
     private PopupController popupController;
     private List<int> bowls;
     private List<int> frameScores;
+    private bool gameComplete;
 
 	// Use this for initialization
 	void Start () {
@@ -19,6 +20,7 @@ public class GameManager : MonoBehaviour {
         popupController = GameObject.FindObjectOfType<PopupController>();
         bowls = new List<int>();
         frameScores = new List<int>();
+        gameComplete = false;
 	}
 
     /// <summary>
@@ -26,6 +28,11 @@ public class GameManager : MonoBehaviour {
     /// </summary>
     /// <param name="pinFall"></param>
     public void BowlComplete(int pinFall) {
+        // If the game is complete, ignore the bowl
+        if (gameComplete) {
+            return;
+        }
+
         try {
             // Update the list of bowls and frame scores
             bowls.Add(pinFall);
@@ -66,6 +73,7 @@ public class GameManager : MonoBehaviour {
             case ActionMaster.Action.EndGame:
                 popupController.SetScore(frameScores.Last<int>());
                 popupController.ShowGameEndPanel();
+                gameComplete = true;
                 break;
             default:
                 throw new UnityException("No specified behaviour for action: " + nextAction);

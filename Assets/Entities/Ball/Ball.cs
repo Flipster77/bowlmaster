@@ -7,6 +7,8 @@ public class Ball : MonoBehaviour {
     public bool inPlay;
     public Transform lane;
 
+    private bool gamePaused = false;
+
     private Rigidbody rigidbodyReference;
     private AudioSource rollingSound;
     private Slider uiBallSlider;
@@ -43,9 +45,17 @@ public class Ball : MonoBehaviour {
     }
 
     void Update() {
-        if (!inPlay) {
+        if (!inPlay && !gamePaused) {
             transform.Rotate(new Vector3(0f, 1f, 0f));
         }
+    }
+
+    void OnPauseGame() {
+        gamePaused = true;
+    }
+
+    void OnResumeGame() {
+        gamePaused = false;
     }
 
     /*void OnTriggerExit(Collider other) {

@@ -11,6 +11,7 @@ public class DragLaunch : MonoBehaviour {
     private const float MAX_Z_VELOCITY = 2000f;
 
     private Ball ball;
+    private bool gamePaused = false;
 
     private Vector3 startPos;
     private float startTime;
@@ -22,13 +23,24 @@ public class DragLaunch : MonoBehaviour {
         ySensitivity = PlayerPrefsManager.GetYSensitivity();
     }
 
+    void OnPauseGame() {
+        gamePaused = true;
+    }
+
+    void OnResumeGame() {
+        gamePaused = false;
+    }
+
     /// <summary>
     /// Records the position and time when the drag launch is started.
     /// </summary>
     public void DragStart() {
-        // Capture time & position of drag start
-        startPos = Input.mousePosition;
-        startTime = Time.time;
+
+        if (!gamePaused) {
+            // Capture time & position of drag start
+            startPos = Input.mousePosition;
+            startTime = Time.time;
+        }
     }
 
     /// <summary>
@@ -37,7 +49,8 @@ public class DragLaunch : MonoBehaviour {
     public void DragEnd() {
 
         // Do nothing if the ball is already launched
-        if (ball.inPlay) {
+        // or the game is paused
+        if (ball.inPlay || gamePaused) {
             return;
         }
 
