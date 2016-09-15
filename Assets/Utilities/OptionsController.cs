@@ -31,15 +31,19 @@ public class OptionsController : MonoBehaviour {
         }
 	}
 
-	public void SaveAndExit() {
+    public void SaveSettings() {
         PlayerPrefsManager.SetGameTrackIndex(musicDropdown.value);
-		PlayerPrefsManager.SetMasterVolume(volumeSlider.value);
-		PlayerPrefsManager.SetXSensitivity(xSensitivitySlider.value);
+        PlayerPrefsManager.SetMasterVolume(volumeSlider.value);
+        PlayerPrefsManager.SetXSensitivity(xSensitivitySlider.value);
         PlayerPrefsManager.SetYSensitivity(ySensitivitySlider.value);
+    }
+
+	public void SaveAndExit() {
+        SaveSettings();
         levelManager.LoadLevel(0);
 	}
 	
-	public void SetDefaults() {
+	public void RevertToDefaults() {
         musicDropdown.value = PlayerPrefsManager.DEFAULT_GAME_TRACK_INDEX;
 		volumeSlider.value = PlayerPrefsManager.DEFAULT_VOLUME;
         xSensitivitySlider.value = PlayerPrefsManager.DEFAULT_X_SENSITIVITY;
