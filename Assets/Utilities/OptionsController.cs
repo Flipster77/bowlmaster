@@ -40,9 +40,9 @@ public class OptionsController : MonoBehaviour {
 	}
 	
 	public void SetDefaults() {
-        musicDropdown.value = 1;
-		volumeSlider.value = 0.6f;
-		xSensitivitySlider.value = 0.25f;
-        ySensitivitySlider.value = 1f;
+        musicDropdown.value = PlayerPrefsManager.DEFAULT_GAME_TRACK_INDEX;
+		volumeSlider.value = PlayerPrefsManager.DEFAULT_VOLUME;
+        xSensitivitySlider.value = PlayerPrefsManager.DEFAULT_X_SENSITIVITY;
+        ySensitivitySlider.value = PlayerPrefsManager.DEFAULT_Y_SENSITIVITY;
 	}
 }
