@@ -6,32 +6,80 @@ public class PopupController : MonoBehaviour {
 
     public GameObject gameEndPanel;
     public GameObject pauseMenuPanel;
-    public Text scoreDisplay;
+    public GameObject optionsMenuPanel;
+    public Text pauseScoreDisplay;
+    public Text finalScoreDisplay;
+    public Text pauseButton;
+
+    public PauseController pauseControl;
 
 	void Awake() {
         HidePauseMenu();
+        HideOptionsMenu();
         HideGameEndPanel();
 	}
 
-    public void ShowPauseMenu() {
+    public void TogglePauseMenu() {
+        // Only toggle the pause menu when the game end
+        // panel is not showing
         if (!gameEndPanel.activeSelf) {
-            pauseMenuPanel.SetActive(true);
+            if (pauseMenuPanel.activeSelf) {
+                HidePauseMenu();
+                pauseControl.ResumeGame();
+            } else {
+                ShowPauseMenu();
+            }
         }
     }
 
-    public void HidePauseMenu() {
-        pauseMenuPanel.SetActive(false);
+    public void ToggleOptionsMenu() {
+        // Only toggle the options menu when the game end
+        // panel is not showing
+        if (!gameEndPanel.activeSelf) {
+            if (optionsMenuPanel.activeSelf) {
+                HideOptionsMenu();
+                pauseControl.ResumeGame();
+            }
+            else {
+                ShowOptionsMenu();
+            }
+        }
     }
 
     public void ShowGameEndPanel() {
         gameEndPanel.SetActive(true);
+        HidePauseMenu();
+        HideOptionsMenu();
     }
 
     public void HideGameEndPanel() {
         gameEndPanel.SetActive(false);
     }
 
-    public void SetScore(int finalScore) {
-        scoreDisplay.text = "FINAL SCORE: " + finalScore.ToString();
-    }    
+    public void SetScore(int score) {
+        pauseScoreDisplay.text = "Current Score: " + score.ToString();
+        finalScoreDisplay.text = "Final Score: " + score.ToString();
+    }
+
+    private void ShowPauseMenu() {
+        pauseControl.PauseGame();
+        pauseMenuPanel.SetActive(true);
+        pauseButton.text = "Resume Game";
+        HideOptionsMenu();
+    }
+
+    private void HidePauseMenu() {
+        pauseMenuPanel.SetActive(false);
+        pauseButton.text = "Pause Game";
+    }
+
+    private void ShowOptionsMenu() {
+        pauseControl.PauseGame();
+        optionsMenuPanel.SetActive(true);
+        HidePauseMenu();
+    }
+
+    private void HideOptionsMenu() {
+        optionsMenuPanel.SetActive(false);
+    }
 }

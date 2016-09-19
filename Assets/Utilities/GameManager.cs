@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour {
             frameScores = ScoreMaster.ScoreFrames(bowls);
             scoreDisplay.FillBowls(bowls);
             scoreDisplay.FillFrames(frameScores);
+            popupController.SetScore(frameScores.LastOrDefault<int>());
 
             // Perform the next action
             ActionMaster.Action nextAction = ActionMaster.GetNextAction(bowls);
@@ -71,7 +72,6 @@ public class GameManager : MonoBehaviour {
                 pinSetter.ResetPins();
                 break;
             case ActionMaster.Action.EndGame:
-                popupController.SetScore(frameScores.Last<int>());
                 popupController.ShowGameEndPanel();
                 gameComplete = true;
                 break;

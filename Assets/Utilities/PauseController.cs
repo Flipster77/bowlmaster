@@ -5,25 +5,22 @@ using System.Collections;
 public class PauseController : MonoBehaviour {
 
     public GameObject[] objectsToPause;
-    public Text pauseButtonLabel;
-    private PopupController popupController;
 
     private bool gamePaused = false;
 
     // Use this for initialization
     void Awake() {
-        popupController = GameObject.FindObjectOfType<PopupController>();
-        Time.timeScale = 1f;
+        ResetTimeScale();
     }
 
     // Update is called once per frame
     void Update() {
         if (Input.GetKeyDown(KeyCode.Escape)) {
-            PauseResumeSwitch();
+            TogglePauseResume();
         }
     }
 
-    public void PauseResumeSwitch() {
+    public void TogglePauseResume() {
         if (gamePaused) {
             ResumeGame();
         }
@@ -40,8 +37,6 @@ public class PauseController : MonoBehaviour {
         }
 
         Time.timeScale = 0f;
-        popupController.ShowPauseMenu();
-        pauseButtonLabel.text = "Resume Game";
         gamePaused = true;
     }
 
@@ -51,15 +46,12 @@ public class PauseController : MonoBehaviour {
         foreach (GameObject obj in objectsToPause) {
             obj.SendMessage("OnResumeGame", SendMessageOptions.DontRequireReceiver);
         }
-
-        popupController.HidePauseMenu();
-        pauseButtonLabel.text = "Pause Game";
+        
         Time.timeScale = 1f;
         gamePaused = false;
     }
 
     public void ResetTimeScale() {
-        Debug.Log("Resetting timescale");
         Time.timeScale = 1f;
     }
 }
