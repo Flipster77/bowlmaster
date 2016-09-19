@@ -23,13 +23,18 @@ public class OptionsController : MonoBehaviour {
 		xSensitivitySlider.value = PlayerPrefsManager.GetXSensitivity();
         ySensitivitySlider.value = PlayerPrefsManager.GetYSensitivity();
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    public void ChangeVolume(float volume) {
         if (musicManager != null) {
-            musicManager.ChangeVolume(volumeSlider.value);
+            musicManager.ChangeVolume(volume);
         }
-	}
+    }
+
+    public void ChangeTrack(int track) {
+        if (musicManager != null) {
+            musicManager.ChangeTrack(track);
+        }
+    }
 
     public void SaveSettings() {
         PlayerPrefsManager.SetGameTrackIndex(musicDropdown.value);

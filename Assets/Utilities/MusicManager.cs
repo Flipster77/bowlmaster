@@ -38,6 +38,15 @@ public class MusicManager : MonoBehaviour {
 			Debug.LogError("Attempted to set master volume to invalid value: " + volume);
 		}
 	}
+
+    public void ChangeTrack(int track) {
+        if (track >= 0 && track <= 2) {
+            PlayMusicTrack(track);
+        }
+        else {
+            Debug.LogError("Attempted to set game track index to invalid value: " + track);
+        }
+    }
 	
 	public void StopMusic() {
 		if (music.isPlaying) {
@@ -56,20 +65,24 @@ public class MusicManager : MonoBehaviour {
 	private void PlayLevelMusic(int level) {
         int trackIndex = levelMusicIndexes[level];
 
-        AudioClip levelClip = musicTracks[trackIndex];
-		
-		if (instance == this && levelClip != null) {
-			Debug.Log("Playing clip: " + levelClip.ToString());
-		
-			if (levelClip != music.clip) {
-				StopMusic();
-				music.clip = levelClip;
-				music.loop = true;
-			}
-			
-			if (!music.isPlaying) {
-				music.Play();
-			}
-		}
+        PlayMusicTrack(trackIndex);
 	}
+
+    private void PlayMusicTrack(int trackIndex) {
+        AudioClip levelClip = musicTracks[trackIndex];
+
+        if (instance == this && levelClip != null) {
+            Debug.Log("Playing clip: " + levelClip.ToString());
+
+            if (levelClip != music.clip) {
+                StopMusic();
+                music.clip = levelClip;
+                music.loop = true;
+            }
+
+            if (!music.isPlaying) {
+                music.Play();
+            }
+        }
+    }
 }

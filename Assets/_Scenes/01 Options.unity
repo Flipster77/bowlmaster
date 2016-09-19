@@ -322,12 +322,12 @@ Prefab:
     - target: {fileID: 224000012482762612, guid: 7d25e2442ee817046a2c591a0b044bc0,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -1229.5
+      value: -1142.5
       objectReference: {fileID: 0}
     - target: {fileID: 224000012482762612, guid: 7d25e2442ee817046a2c591a0b044bc0,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 370.99997
+      value: 370.99994
       objectReference: {fileID: 0}
     - target: {fileID: 224000012482762612, guid: 7d25e2442ee817046a2c591a0b044bc0,
         type: 2}
@@ -867,7 +867,7 @@ Prefab:
     - target: {fileID: 224000013396199026, guid: 5ea5f7b3ad5cc42448079d04a62b0aec,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 673.99994
+      value: 717.4999
       objectReference: {fileID: 0}
     - target: {fileID: 224000013396199026, guid: 5ea5f7b3ad5cc42448079d04a62b0aec,
         type: 2}
@@ -877,7 +877,7 @@ Prefab:
     - target: {fileID: 224000013396199026, guid: 5ea5f7b3ad5cc42448079d04a62b0aec,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 962
+      value: 875
       objectReference: {fileID: 0}
     - target: {fileID: 224000013396199026, guid: 5ea5f7b3ad5cc42448079d04a62b0aec,
         type: 2}
@@ -1992,6 +1992,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 549864455}
     m_Modifications:
+    - target: {fileID: 114000010518780578, guid: 157fc547e55207f43998b7bdb77e0f33,
+        type: 2}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 224000011528164286, guid: 157fc547e55207f43998b7bdb77e0f33,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -2115,6 +2120,31 @@ Prefab:
         type: 2}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010518780578, guid: 157fc547e55207f43998b7bdb77e0f33,
+        type: 2}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010518780578, guid: 157fc547e55207f43998b7bdb77e0f33,
+        type: 2}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010518780578, guid: 157fc547e55207f43998b7bdb77e0f33,
+        type: 2}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 909349718}
+    - target: {fileID: 114000010518780578, guid: 157fc547e55207f43998b7bdb77e0f33,
+        type: 2}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeVolume
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010518780578, guid: 157fc547e55207f43998b7bdb77e0f33,
+        type: 2}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 157fc547e55207f43998b7bdb77e0f33, type: 2}
