@@ -4,7 +4,13 @@ using System.Collections;
 [RequireComponent (typeof (Ball))]
 public class DragLaunch : MonoBehaviour {
 
+    /// <summary>
+    /// The multiplier to apply to the x drag distance.
+    /// </summary>
     public float xSensitivity { get; set; }
+    /// <summary>
+    /// The multiplier to apply to the y drag distance.
+    /// </summary>
     public float ySensitivity { get; set; }
 
     private const float MIN_Z_VELOCITY = 400f;
@@ -23,10 +29,16 @@ public class DragLaunch : MonoBehaviour {
         ySensitivity = PlayerPrefsManager.GetYSensitivity();
     }
 
+    /// <summary>
+    /// Notifies the drag launcher that the game has been paused.
+    /// </summary>
     void OnPauseGame() {
         gamePaused = true;
     }
 
+    /// <summary>
+    /// Notifies the drag launcher that the game has been resumed.
+    /// </summary>
     void OnResumeGame() {
         gamePaused = false;
     }
@@ -36,6 +48,7 @@ public class DragLaunch : MonoBehaviour {
     /// </summary>
     public void DragStart() {
 
+        // Ignore drags when the game is paused
         if (!gamePaused) {
             // Capture time & position of drag start
             startPos = Input.mousePosition;

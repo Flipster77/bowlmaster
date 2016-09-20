@@ -4,6 +4,9 @@ using System.Collections;
 
 public class PauseController : MonoBehaviour {
 
+    /// <summary>
+    /// The objects to alert when a pause or resume occurs.
+    /// </summary>
     public GameObject[] objectsToPause;
 
     private bool gamePaused = false;
@@ -13,13 +16,9 @@ public class PauseController : MonoBehaviour {
         ResetTimeScale();
     }
 
-    // Update is called once per frame
-    void Update() {
-        if (Input.GetKeyDown(KeyCode.Escape)) {
-            TogglePauseResume();
-        }
-    }
-
+    /// <summary>
+    /// Pauses the game if currently paused, resumes the game otherwise.
+    /// </summary>
     public void TogglePauseResume() {
         if (gamePaused) {
             ResumeGame();
@@ -29,28 +28,33 @@ public class PauseController : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Pauses the game. Sends the message that a pause has occurred to subscribed objects.
+    /// </summary>
     public void PauseGame() {
-        Debug.Log("Game paused");
-
         foreach (GameObject obj in objectsToPause) {
             obj.SendMessage("OnPauseGame", SendMessageOptions.DontRequireReceiver);
         }
 
-        Time.timeScale = 0f;
+        ResetTimeScale();
         gamePaused = true;
     }
 
+    /// <summary>
+    /// Resumes the game. Sends the message that a resume has occurred to subscribed objects.
+    /// </summary>
     public void ResumeGame() {
-        Debug.Log("Game resumed");
-
         foreach (GameObject obj in objectsToPause) {
             obj.SendMessage("OnResumeGame", SendMessageOptions.DontRequireReceiver);
         }
-        
-        Time.timeScale = 1f;
+
+        ResetTimeScale();
         gamePaused = false;
     }
 
+    /// <summary>
+    /// Resets the time scale to normal, i.e. 1f.
+    /// </summary>
     public void ResetTimeScale() {
         Time.timeScale = 1f;
     }

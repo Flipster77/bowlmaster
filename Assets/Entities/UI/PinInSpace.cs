@@ -3,7 +3,13 @@ using System.Collections;
 
 public class PinInSpace : MonoBehaviour {
 
+    /// <summary>
+    /// The speed at which the pin rotates.
+    /// </summary>
     public float rotationSpeed;
+    /// <summary>
+    /// The direction of the pin's rotation.
+    /// </summary>
     public Vector3 rotationDirection;
 
     private Rigidbody rigidBody;
@@ -12,9 +18,5 @@ public class PinInSpace : MonoBehaviour {
 	void Start () {
         rigidBody = GetComponent<Rigidbody>();
         rigidBody.AddTorque(rotationDirection * rotationSpeed);
-    }
-	
-	void FixedUpdate () {
-        
     }
 }

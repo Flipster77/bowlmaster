@@ -13,10 +13,6 @@ public class Pin : MonoBehaviour {
     /// An array of pin hit sounds to use.
     /// </summary>
     public AudioClip[] hitSounds;
-    /// <summary>
-    /// The threshold velocity that a collision needs to exceed to produce a sound.
-    /// </summary>
-    public float hitSoundThreshold = 15f;
 
     /// <summary>
     /// Records the last time that the pin was hit.
@@ -34,6 +30,10 @@ public class Pin : MonoBehaviour {
     /// The time in seconds to wait until a new lane hit sound should be played.
     /// </summary>
     private const float MIN_LANE_HIT_TIME = 2f;
+    /// <summary>
+    /// The threshold velocity that a collision needs to exceed to produce a sound.
+    /// </summary>
+    private const float HIT_SPEED_SOUND_THRESHOLD = 15f;
 
     private Rigidbody rigidbodyReference;
     /// <summary>
@@ -53,6 +53,10 @@ public class Pin : MonoBehaviour {
         initialRotation = transform.rotation;
     }
 
+    /// <summary>
+    /// Plays a collision sound effect if it passes certain thresholds.
+    /// </summary>
+    /// <param name="collision">The collision that occurred.</param>
     void OnCollisionEnter(Collision collision) {
 
         // If the pin is not within the play area, ignore the collision
@@ -66,8 +70,9 @@ public class Pin : MonoBehaviour {
         float timeSinceLastHit = Time.time - lastHitTime;
         float timeSinceLastHitLane = Time.time - lastHitLaneTime;
 
-        // If the speed of the collision
-        if (speedOfCollision > hitSoundThreshold && timeSinceLastHit > MIN_HIT_TIME) {
+        // If the speed of the collision is greater than the threshold for sound to occur
+        // And the time since the last collision occurred is greater than another threshold
+        if (speedOfCollision > HIT_SPEED_SOUND_THRESHOLD && timeSinceLastHit > MIN_HIT_TIME) {
             // Hit by ball
             if (otherObject.GetComponent<Ball>() != null) {
                 // Play ball hit sound
@@ -78,7 +83,7 @@ public class Pin : MonoBehaviour {
                 // Play pin hit sound
                 AudioSource.PlayClipAtPoint(hitSounds[1], transform.position, 1.0f);
             }
-            // Hit the lane
+            // Hit the lane (check that a lane hit specific threshold is passed)
             else if (otherObject.CompareTag("Lane") && timeSinceLastHitLane > MIN_LANE_HIT_TIME) {
                 // Play lane hit sound
                 AudioSource.PlayClipAtPoint(hitSounds[2], transform.position, 1.0f);

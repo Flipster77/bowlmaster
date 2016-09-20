@@ -4,7 +4,13 @@ using System.Collections;
 
 public class Ball : MonoBehaviour {
 
+    /// <summary>
+    /// Whether the ball is currently rolling, i.e. the ball has been launched.
+    /// </summary>
     public bool inPlay;
+    /// <summary>
+    /// The lane that the ball will be bowled down.
+    /// </summary>
     public Transform lane;
 
     private bool gamePaused = false;
@@ -45,15 +51,22 @@ public class Ball : MonoBehaviour {
     }
 
     void Update() {
+        // While the ball is waiting to be launched, rotate it.
         if (!inPlay && !gamePaused) {
             transform.Rotate(new Vector3(0f, 1f, 0f));
         }
     }
 
+    /// <summary>
+    /// Notifies the ball that the game has been paused.
+    /// </summary>
     void OnPauseGame() {
         gamePaused = true;
     }
 
+    /// <summary>
+    /// Notifies the ball that the game has been resumed.
+    /// </summary>
     void OnResumeGame() {
         gamePaused = false;
     }

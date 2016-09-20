@@ -19,6 +19,13 @@ public class PopupController : MonoBehaviour {
         HideGameEndPanel();
 	}
 
+    // Update is called once per frame
+    void Update() {
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            TogglePauseMenu();
+        }
+    }
+
     public void TogglePauseMenu() {
         // Only toggle the pause menu when the game end
         // panel is not showing
