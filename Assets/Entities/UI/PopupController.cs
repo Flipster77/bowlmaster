@@ -1,66 +1,55 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System;
+using System.Collections.Generic;
 
 public class PopupController : MonoBehaviour {
 
-    public GameObject gameEndPanel;
-    public GameObject pauseMenuPanel;
-    public GameObject optionsMenuPanel;
+    private GameObject gameEndPanel;
     public Text pauseScoreDisplay;
     public Text finalScoreDisplay;
-    public Text pauseButton;
 
     public PauseController pauseControl;
 
+    private Dictionary<string, GameObject> popupDictionary;
+
 	void Awake() {
-        HidePauseMenu();
-        HideOptionsMenu();
-        HideGameEndPanel();
+        SetupDictionary();
+
+        HideAllPopups();
 	}
 
     // Update is called once per frame
     void Update() {
         if (Input.GetKeyDown(KeyCode.Escape)) {
-            TogglePauseMenu();
+            TogglePopup("PauseMenu");
         }
-    }
+    }    
 
-    public void TogglePauseMenu() {
-        // Only toggle the pause menu when the game end
-        // panel is not showing
-        if (!gameEndPanel.activeSelf) {
-            if (pauseMenuPanel.activeSelf) {
-                HidePauseMenu();
-                pauseControl.ResumeGame();
-            } else {
-                ShowPauseMenu();
-            }
+    public void TogglePopup(string popupTag) {
+        // Ignore popup requests when the game end panel is showing
+        if (gameEndPanel.activeSelf) {
+            return;
         }
-    }
 
-    public void ToggleOptionsMenu() {
-        // Only toggle the options menu when the game end
-        // panel is not showing
-        if (!gameEndPanel.activeSelf) {
-            if (optionsMenuPanel.activeSelf) {
-                HideOptionsMenu();
-                pauseControl.ResumeGame();
-            }
-            else {
-                ShowOptionsMenu();
-            }
+        if (String.IsNullOrEmpty(popupTag)) {
+            Debug.LogError("Attempted to toggle popup using null or empty string");
+            return;
+        }
+
+        GameObject popupPanel = popupDictionary[popupTag];
+        if (popupPanel.activeSelf) {
+            HidePopup(popupPanel);
+            pauseControl.ResumeGame();
+
+        } else {
+            ShowPopup(popupPanel);
         }
     }
 
     public void ShowGameEndPanel() {
-        gameEndPanel.SetActive(true);
-        HidePauseMenu();
-        HideOptionsMenu();
-    }
-
-    public void HideGameEndPanel() {
-        gameEndPanel.SetActive(false);
+        ShowPopup(gameEndPanel);
     }
 
     public void SetScore(int score) {
@@ -68,25 +57,42 @@ public class PopupController : MonoBehaviour {
         finalScoreDisplay.text = "Final Score: " + score.ToString();
     }
 
-    private void ShowPauseMenu() {
+    private void ShowPopup(GameObject popupPanel) {
         pauseControl.PauseGame();
-        pauseMenuPanel.SetActive(true);
-        pauseButton.text = "Resume Game";
-        HideOptionsMenu();
+        popupPanel.SetActive(true);
+        HideOtherPopups(popupPanel);
     }
 
-    private void HidePauseMenu() {
-        pauseMenuPanel.SetActive(false);
-        pauseButton.text = "Pause Game";
+    private void HidePopup(GameObject popupPanel) {
+        popupPanel.SetActive(false);
     }
 
-    private void ShowOptionsMenu() {
-        pauseControl.PauseGame();
-        optionsMenuPanel.SetActive(true);
-        HidePauseMenu();
+    private void HideOtherPopups(GameObject panelToShow) {
+        foreach (GameObject panel in popupDictionary.Values) {
+            if (panel != panelToShow) {
+                HidePopup(panel);
+            }
+        }
     }
 
-    private void HideOptionsMenu() {
-        optionsMenuPanel.SetActive(false);
+    private void HideAllPopups() {
+        foreach (GameObject popup in popupDictionary.Values) {
+            popup.SetActive(false);
+        }
+    }
+
+    private void SetupDictionary() {
+        popupDictionary = new Dictionary<string, GameObject>();
+
+        Transform parent = this.transform;
+        foreach (Transform child in parent) {
+            if (!String.IsNullOrEmpty(child.tag) && !child.tag.Equals("Untagged")) {
+                popupDictionary.Add(child.tag, child.gameObject);
+
+                if (child.tag.Equals("GameEndPanel")) {
+                    gameEndPanel = child.gameObject;
+                }
+            }
+        }
     }
 }

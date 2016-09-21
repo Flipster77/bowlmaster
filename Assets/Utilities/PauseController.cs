@@ -36,7 +36,7 @@ public class PauseController : MonoBehaviour {
             obj.SendMessage("OnPauseGame", SendMessageOptions.DontRequireReceiver);
         }
 
-        ResetTimeScale();
+        Time.timeScale = 0f;
         gamePaused = true;
     }
 

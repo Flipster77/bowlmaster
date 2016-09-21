@@ -9,6 +9,10 @@ TagManager:
   - Lane
   - LaneBox
   - BallSlider
+  - ExitGameMenu
+  - OptionsMenu
+  - HowToPlay
+  - GameEndPanel
   layers:
   - Default
   - TransparentFX
