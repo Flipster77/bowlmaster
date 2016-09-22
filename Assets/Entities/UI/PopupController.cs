@@ -23,7 +23,7 @@ public class PopupController : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         if (Input.GetKeyDown(KeyCode.Escape)) {
-            TogglePopup("PauseMenu");
+            TogglePopup("ExitGameMenu");
         }
     }    
 
@@ -38,13 +38,18 @@ public class PopupController : MonoBehaviour {
             return;
         }
 
-        GameObject popupPanel = popupDictionary[popupTag];
-        if (popupPanel.activeSelf) {
-            HidePopup(popupPanel);
-            pauseControl.ResumeGame();
+        GameObject popupPanel;
+        if (popupDictionary.TryGetValue(popupTag, out popupPanel)) {
+            if (popupPanel.activeSelf) {
+                HidePopup(popupPanel);
+                pauseControl.ResumeGame();
 
+            }
+            else {
+                ShowPopup(popupPanel);
+            }
         } else {
-            ShowPopup(popupPanel);
+            Debug.LogError("Attempted to toggle popup using tag that was not found: " + popupTag);
         }
     }
 
