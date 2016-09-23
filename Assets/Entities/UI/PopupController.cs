@@ -54,7 +54,8 @@ public class PopupController : MonoBehaviour {
     }
 
     public void ShowGameEndPanel() {
-        ShowPopup(gameEndPanel);
+        gameEndPanel.SetActive(true);
+        HideOtherPopups(gameEndPanel);
     }
 
     public void SetScore(int score) {

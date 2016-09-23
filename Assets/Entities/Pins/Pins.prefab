@@ -747,7 +747,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1.53
   m_Drag: 0.1
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0.04
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -762,7 +762,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1.53
   m_Drag: 0.1
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0.04
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -777,7 +777,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1.53
   m_Drag: 0.1
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0.04
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -792,7 +792,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1.53
   m_Drag: 0.1
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0.04
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -807,7 +807,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1.53
   m_Drag: 0.1
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0.04
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -822,7 +822,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1.53
   m_Drag: 0.1
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0.04
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -837,7 +837,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1.53
   m_Drag: 0.1
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0.04
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -852,7 +852,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1.53
   m_Drag: 0.1
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0.04
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -867,7 +867,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1.53
   m_Drag: 0.1
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0.04
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -882,7 +882,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1.53
   m_Drag: 0.1
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0.04
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -1019,12 +1019,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1970aaad1f12784dadbc206c529bb66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  standingThreshold: 10
   hitSounds:
   - {fileID: 8300000, guid: 4afd32e1902d49c4a9b2d61518406798, type: 3}
   - {fileID: 8300000, guid: 3e79ef526963cb74382277c6e416ae6f, type: 3}
   - {fileID: 8300000, guid: 3c460fe716a70cb4eb39176e9ff6c41c, type: 3}
-  hitSoundThreshold: 20
 --- !u!114 &11423180
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1036,12 +1034,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1970aaad1f12784dadbc206c529bb66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  standingThreshold: 10
   hitSounds:
   - {fileID: 8300000, guid: 4afd32e1902d49c4a9b2d61518406798, type: 3}
   - {fileID: 8300000, guid: 3e79ef526963cb74382277c6e416ae6f, type: 3}
   - {fileID: 8300000, guid: 3c460fe716a70cb4eb39176e9ff6c41c, type: 3}
-  hitSoundThreshold: 20
 --- !u!114 &11432942
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1053,12 +1049,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1970aaad1f12784dadbc206c529bb66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  standingThreshold: 10
   hitSounds:
   - {fileID: 8300000, guid: 4afd32e1902d49c4a9b2d61518406798, type: 3}
   - {fileID: 8300000, guid: 3e79ef526963cb74382277c6e416ae6f, type: 3}
   - {fileID: 8300000, guid: 3c460fe716a70cb4eb39176e9ff6c41c, type: 3}
-  hitSoundThreshold: 20
 --- !u!114 &11435006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1070,12 +1064,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1970aaad1f12784dadbc206c529bb66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  standingThreshold: 10
   hitSounds:
   - {fileID: 8300000, guid: 4afd32e1902d49c4a9b2d61518406798, type: 3}
   - {fileID: 8300000, guid: 3e79ef526963cb74382277c6e416ae6f, type: 3}
   - {fileID: 8300000, guid: 3c460fe716a70cb4eb39176e9ff6c41c, type: 3}
-  hitSoundThreshold: 20
 --- !u!114 &11463674
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1087,12 +1079,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1970aaad1f12784dadbc206c529bb66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  standingThreshold: 10
   hitSounds:
   - {fileID: 8300000, guid: 4afd32e1902d49c4a9b2d61518406798, type: 3}
   - {fileID: 8300000, guid: 3e79ef526963cb74382277c6e416ae6f, type: 3}
   - {fileID: 8300000, guid: 3c460fe716a70cb4eb39176e9ff6c41c, type: 3}
-  hitSoundThreshold: 20
 --- !u!114 &11465644
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1104,12 +1094,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1970aaad1f12784dadbc206c529bb66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  standingThreshold: 10
   hitSounds:
   - {fileID: 8300000, guid: 4afd32e1902d49c4a9b2d61518406798, type: 3}
   - {fileID: 8300000, guid: 3e79ef526963cb74382277c6e416ae6f, type: 3}
   - {fileID: 8300000, guid: 3c460fe716a70cb4eb39176e9ff6c41c, type: 3}
-  hitSoundThreshold: 20
 --- !u!114 &11468500
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1121,12 +1109,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1970aaad1f12784dadbc206c529bb66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  standingThreshold: 10
   hitSounds:
   - {fileID: 8300000, guid: 4afd32e1902d49c4a9b2d61518406798, type: 3}
   - {fileID: 8300000, guid: 3e79ef526963cb74382277c6e416ae6f, type: 3}
   - {fileID: 8300000, guid: 3c460fe716a70cb4eb39176e9ff6c41c, type: 3}
-  hitSoundThreshold: 20
 --- !u!114 &11484192
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1138,12 +1124,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1970aaad1f12784dadbc206c529bb66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  standingThreshold: 10
   hitSounds:
   - {fileID: 8300000, guid: 4afd32e1902d49c4a9b2d61518406798, type: 3}
   - {fileID: 8300000, guid: 3e79ef526963cb74382277c6e416ae6f, type: 3}
   - {fileID: 8300000, guid: 3c460fe716a70cb4eb39176e9ff6c41c, type: 3}
-  hitSoundThreshold: 20
 --- !u!114 &11497930
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1155,12 +1139,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1970aaad1f12784dadbc206c529bb66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  standingThreshold: 10
   hitSounds:
   - {fileID: 8300000, guid: 4afd32e1902d49c4a9b2d61518406798, type: 3}
   - {fileID: 8300000, guid: 3e79ef526963cb74382277c6e416ae6f, type: 3}
   - {fileID: 8300000, guid: 3c460fe716a70cb4eb39176e9ff6c41c, type: 3}
-  hitSoundThreshold: 20
 --- !u!114 &11499506
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1172,12 +1154,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1970aaad1f12784dadbc206c529bb66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  standingThreshold: 10
   hitSounds:
   - {fileID: 8300000, guid: 4afd32e1902d49c4a9b2d61518406798, type: 3}
   - {fileID: 8300000, guid: 3e79ef526963cb74382277c6e416ae6f, type: 3}
   - {fileID: 8300000, guid: 3c460fe716a70cb4eb39176e9ff6c41c, type: 3}
-  hitSoundThreshold: 20
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

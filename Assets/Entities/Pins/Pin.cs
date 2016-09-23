@@ -4,12 +4,6 @@ using System.Collections;
 public class Pin : MonoBehaviour {
 
     /// <summary>
-    /// The threshold value of how many degrees from the origin the pin
-    /// can sway before it is no longer considered standing.
-    /// </summary>
-    public float standingThreshold = 10f;
-
-    /// <summary>
     /// An array of pin hit sounds to use.
     /// </summary>
     public AudioClip[] hitSounds;
@@ -34,6 +28,11 @@ public class Pin : MonoBehaviour {
     /// The threshold velocity that a collision needs to exceed to produce a sound.
     /// </summary>
     private const float HIT_SPEED_SOUND_THRESHOLD = 15f;
+    /// <summary>
+    /// The threshold value of how many degrees from the origin the pin
+    /// can sway before it is no longer considered standing.
+    /// </summary>
+    private const float STANDING_THRESHOLD = 10f;
 
     private Rigidbody rigidbodyReference;
     /// <summary>
@@ -120,7 +119,7 @@ public class Pin : MonoBehaviour {
     /// <param name="angle">The angle to check.</param>
     /// <returns>True if the angle is within the threshold, false otherwise.</returns>
     private bool AngleWithinThreshold(float angle) {
-        if (angle < 0f + standingThreshold || angle > 360f - standingThreshold) {
+        if (angle < 0f + STANDING_THRESHOLD || angle > 360f - STANDING_THRESHOLD) {
             return true;
         }
 
