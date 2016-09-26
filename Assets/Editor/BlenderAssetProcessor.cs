@@ -5,7 +5,8 @@ using System.IO;
 using System.Linq;
 
 /*
- * Authof: Benjamin Schaaf
+ * Author: Benjamin Schaaf
+ * Class taken from: http://wiki.unity3d.com/index.php/FixBlenderImportRotation
  */
 public class BlenderAssetProcessor : AssetPostprocessor {
 

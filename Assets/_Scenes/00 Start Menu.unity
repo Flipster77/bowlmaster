@@ -308,6 +308,11 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: 03 Credits
       objectReference: {fileID: 0}
+    - target: {fileID: 114000011381417670, guid: e16b0d84cef45724cac083d3ceb96487,
+        type: 2}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e16b0d84cef45724cac083d3ceb96487, type: 2}
   m_IsPrefabParent: 0

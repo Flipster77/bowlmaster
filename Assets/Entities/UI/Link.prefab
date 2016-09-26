@@ -30,7 +30,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fa9c0659848ecc43962e570d70d4420, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LinkAddress: https://petergambell.itch.io/
+  LinkAddress: https://petergambell.itch.io/laser-defender
 --- !u!114 &11423634
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -50,7 +50,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.07266434, g: 0.35789764, b: 0.7058823, a: 1}
+    m_NormalColor: {r: 0.4392157, g: 0.78431374, b: 0.21568628, a: 1}
     m_HighlightedColor: {r: 0.37254903, g: 0.5686275, b: 0.8078432, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -104,18 +104,18 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 2b53dc7b414469b41a8ba813e1d18a85, type: 3}
-    m_FontSize: 15
+    m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 119
-    m_Alignment: 0
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Link text
+  m_Text: Space Bowling
 --- !u!222 &22225544
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -135,10 +135,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -261.15, y: -0.25}
-  m_SizeDelta: {x: 181.7, y: 26}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 75.4, y: -10}
+  m_SizeDelta: {x: 150, y: 20.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &100100000
 Prefab:
