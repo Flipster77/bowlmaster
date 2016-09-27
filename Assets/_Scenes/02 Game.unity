@@ -5934,6 +5934,10 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: OptionsMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 1000013612198582, guid: e16b0d84cef45724cac083d3ceb96487, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e16b0d84cef45724cac083d3ceb96487, type: 2}
   m_IsPrefabParent: 0
@@ -7907,7 +7911,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1691491803
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8013,7 +8017,7 @@ Prefab:
     - target: {fileID: 224000011143054384, guid: e16b0d84cef45724cac083d3ceb96487,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -0.25001
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224000011143054384, guid: e16b0d84cef45724cac083d3ceb96487,
         type: 2}
@@ -8626,7 +8630,7 @@ Prefab:
     - target: {fileID: 224000013396199026, guid: 5ea5f7b3ad5cc42448079d04a62b0aec,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 113
+      value: 116.000015
       objectReference: {fileID: 0}
     - target: {fileID: 224000013396199026, guid: 5ea5f7b3ad5cc42448079d04a62b0aec,
         type: 2}
@@ -8636,7 +8640,7 @@ Prefab:
     - target: {fileID: 224000013396199026, guid: 5ea5f7b3ad5cc42448079d04a62b0aec,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 216
+      value: 222
       objectReference: {fileID: 0}
     - target: {fileID: 224000013396199026, guid: 5ea5f7b3ad5cc42448079d04a62b0aec,
         type: 2}
