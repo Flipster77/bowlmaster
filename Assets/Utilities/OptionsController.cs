@@ -17,6 +17,7 @@ public class OptionsController : MonoBehaviour {
         musicManager = MusicManager.Instance;
         if (musicDropdown != null) {
             musicDropdown.value = PlayerPrefsManager.GetGameTrackIndex();
+            musicDropdown.RefreshShownValue();
         }
         
         volumeSlider.value = PlayerPrefsManager.GetMusicVolume();
