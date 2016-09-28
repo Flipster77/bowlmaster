@@ -15,9 +15,6 @@ public class CameraControl : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (this.transform.position.z <= 1700f || !ball.inPlay) {
-            //Vector3 cameraPosition = ball.transform.position + offset;
-            //cameraPosition.x = 0f;
-
             this.transform.position = ball.transform.position + offset;
         }
 	}

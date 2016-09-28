@@ -3,7 +3,13 @@ using System.Collections;
 
 public class SkyboxRotater : MonoBehaviour {
 
+    /// <summary>
+    /// The number of degrees per second that the skybox is rotated by.
+    /// </summary>
     public float rotationSpeed;
+    /// <summary>
+    /// The current rotation value of the skybox.
+    /// </summary>
     private float rotation;
 
     private Light directionalLight;
@@ -12,7 +18,9 @@ public class SkyboxRotater : MonoBehaviour {
         directionalLight = FindObjectOfType<Light>();
     }
 
-	
+	/// <summary>
+    /// Rotates the skybox and the directional light each frame.
+    /// </summary>
 	void Update () {
         rotation += rotationSpeed * Time.deltaTime;
         rotation %= 360f;
