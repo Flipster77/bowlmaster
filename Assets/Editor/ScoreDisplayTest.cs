@@ -146,4 +146,11 @@ public class ScoreDisplayTest {
         string bowlsString = "12345╱9—8172635445—╱X";
         Assert.AreEqual(bowlsString, ScoreDisplay.FormatBowls(bowls.ToList()));
     }
+
+    [Test]
+    public void T20SpareThenStrikeInLastFrame() {
+        int[] bowls = { 1, 2, 3, 4, 10, 0, 9, 0, 8, 1, 7, 2, 6, 3, 5, 4, 4, 5, 8, 2, 10 };
+        string bowlsString = "1234 X9—81726354458╱X";
+        Assert.AreEqual(bowlsString, ScoreDisplay.FormatBowls(bowls.ToList()));
+    }
 }
