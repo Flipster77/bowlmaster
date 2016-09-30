@@ -3226,6 +3226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 0.5
+  rotationEnabled: 0
 --- !u!4 &622237176
 Transform:
   m_ObjectHideFlags: 0
@@ -4234,6 +4235,14 @@ Prefab:
     - target: {fileID: 496128, guid: 78a6a50c7f5831941a4fe0b72333819b, type: 2}
       propertyPath: m_RootOrder
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 179746, guid: 78a6a50c7f5831941a4fe0b72333819b, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 159424, guid: 78a6a50c7f5831941a4fe0b72333819b, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 78a6a50c7f5831941a4fe0b72333819b, type: 2}
