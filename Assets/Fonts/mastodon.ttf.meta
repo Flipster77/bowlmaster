@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 2b53dc7b414469b41a8ba813e1d18a85
-timeCreated: 1473317609
+guid: b9fbe75bae3ed2346be13dab177e44be
+timeCreated: 1475557221
 licenseType: Free
 TrueTypeFontImporter:
   serializedVersion: 4
@@ -10,10 +10,8 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Conthrax
   - Mastodon
-  fallbackFontReferences:
-  - {fileID: 12800000, guid: b9fbe75bae3ed2346be13dab177e44be, type: 3}
+  fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1
