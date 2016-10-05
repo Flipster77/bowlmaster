@@ -43,7 +43,6 @@ public class GameManager : MonoBehaviour {
 
             // Perform the next action
             ActionMaster.Action nextAction = ActionMaster.GetNextAction(bowls);
-            Debug.Log("Pins knocked down is: " + pinFall + ", Action is: " + nextAction);
             PerformAction(nextAction);
 
         } catch (Exception ex) {

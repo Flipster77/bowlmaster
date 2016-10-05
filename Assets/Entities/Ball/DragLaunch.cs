@@ -77,13 +77,9 @@ public class DragLaunch : MonoBehaviour {
             dragDuration = 0.0001f;
         }
 
-        Debug.Log("xSensitivity: " + xSensitivity + ", ySensitivity: " + ySensitivity);
-
         float xVelocity = (dragDistance.x * xSensitivity) / dragDuration;
         float zVelocity = (dragDistance.y * ySensitivity) / dragDuration;
         zVelocity = Mathf.Clamp(zVelocity, MIN_Z_VELOCITY, MAX_Z_VELOCITY);
-
-        Debug.Log("xVelocity: " + xVelocity + ", zVelocity: " + zVelocity);
 
         Vector3 launchVelocity = new Vector3(xVelocity, 0f, zVelocity);
         ball.Launch(launchVelocity);

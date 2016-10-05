@@ -9,7 +9,6 @@ public class LevelManager : MonoBehaviour {
     /// </summary>
     /// <param name="name">The name of the level to load.</param>
 	public void LoadLevel(string name) {
-		Debug.Log("Loading level " + name);
 		SceneManager.LoadScene(name);
 	}
 	
@@ -18,7 +17,6 @@ public class LevelManager : MonoBehaviour {
     /// </summary>
     /// <param name="index">The build index of the level to load.</param>
 	public void LoadLevel(int index) {
-		Debug.Log("Loading level " + index);
         SceneManager.LoadScene(index);
 	}
 	
@@ -62,8 +60,10 @@ public class LevelManager : MonoBehaviour {
     /// Exits the application.
     /// </summary>
 	public void QuitRequest() {
-		Debug.Log("Quit requested");
-		Application.Quit();
+        #if DEBUG
+            Debug.Log("Quit requested");
+        #endif
+        Application.Quit();
 	}
 	
     /// <summary>

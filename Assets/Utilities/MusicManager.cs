@@ -128,7 +128,6 @@ public class MusicManager : MonoBehaviour {
             // If music is not currently playing, start the music
             if (!music.isPlaying) {
                 music.Play();
-                Debug.Log("Playing clip: " + levelClip.ToString());
             }
         } else {
             Debug.LogError("Failed to play music. No music found for track index " + trackIndex);

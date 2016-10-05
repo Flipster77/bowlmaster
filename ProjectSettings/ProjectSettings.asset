@@ -164,8 +164,8 @@ PlayerSettings:
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: 
-  AndroidKeyaliasName: 
+  AndroidKeystoreName: C:/Users/flips/Documents/GitHub/bowlmaster/Builds/Keystores/spacebowling_v1.0.keystore
+  AndroidKeyaliasName: spacebowlingv1
   AndroidTVCompatibility: 1
   AndroidIsGame: 1
   androidEnableBanner: 1

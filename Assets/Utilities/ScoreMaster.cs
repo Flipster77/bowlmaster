@@ -49,12 +49,6 @@ public static class ScoreMaster {
             bowlIndex += 2;
         }
 
-        /*string debugLog = "Frame list:";
-        foreach (int i in frameScoreList) {
-            debugLog += " " + i;
-        }
-        Debug.Log(debugLog);*/
-
         // Return the list of frame scores
         return frameScoreList;
     }
