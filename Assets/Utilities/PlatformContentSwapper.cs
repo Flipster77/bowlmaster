@@ -21,11 +21,13 @@ public class PlatformContentSwapper : MonoBehaviour {
     /// Removes the content for platforms other than the current platform.
     /// </summary>
     private void RemoveContentForOtherPlatforms() {
-        #if UNITY_ANDROID
-            RemoveStandaloneContent();
-        #else
-            RemoveMobileContent();
-        #endif
+#if UNITY_ANDROID
+        RemoveStandaloneContent();
+#elif UNITY_IOS
+        RemoveStandaloneContent();
+#else
+        RemoveMobileContent();
+#endif
     }
 
     /// <summary>
